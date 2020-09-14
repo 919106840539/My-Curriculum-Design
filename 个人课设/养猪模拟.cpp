@@ -1,14 +1,14 @@
-//ÑøÖíÄ£ÄâÆ÷(ÓÎÏ·)
+//å…»çŒªæ¨¡æ‹Ÿå™¨(æ¸¸æˆ)
 //ver 1.1.1.20200831
-//Íê³É³õ²½µÄ½á¹¹Ìå¶¨Òå£¬³¢ÊÔÊµÏÖ×î»ù´¡µÄÁ´±í´´½¨ºÍ³õÊ¼»¯
+//å®Œæˆåˆæ­¥çš„ç»“æ„ä½“å®šä¹‰ï¼Œå°è¯•å®ç°æœ€åŸºç¡€çš„é“¾è¡¨åˆ›å»ºå’Œåˆå§‹åŒ–
 //ver 1.1.2.20200901
-//Ê¹ÓÃÀà·â×°Ïà¹ØÖíÈ¦ĞÅÏ¢£¬Íê³É³ÉÔ±º¯ÊıµÄ´óÌå¹æ»®£¬³õ²½Íê³ÉÒ»Ğ¡²¿·Ö³ÉÔ±º¯ÊıµÄ¶¨Òå
+//ä½¿ç”¨ç±»å°è£…ç›¸å…³çŒªåœˆä¿¡æ¯ï¼Œå®Œæˆæˆå‘˜å‡½æ•°çš„å¤§ä½“è§„åˆ’ï¼Œåˆæ­¥å®Œæˆä¸€å°éƒ¨åˆ†æˆå‘˜å‡½æ•°çš„å®šä¹‰
 //ver 1.1.5.20200905
-//Íê³É»ù±¾³ÉÔ±º¯ÊıµÄ¹¹½¨£¬³õ²½È·Á¢Ö÷Ìå¹¦ÄÜµÄÊµÏÖ·½Ê½£¬µ«ÈÔÎ´½â¾öÎÄ¼ş´æÈ¡µÄÎÊÌâ
+//å®ŒæˆåŸºæœ¬æˆå‘˜å‡½æ•°çš„æ„å»ºï¼Œåˆæ­¥ç¡®ç«‹ä¸»ä½“åŠŸèƒ½çš„å®ç°æ–¹å¼ï¼Œä½†ä»æœªè§£å†³æ–‡ä»¶å­˜å–çš„é—®é¢˜
 //ver 1.1.8.20200910
-//½â¾öÎÄ¼ş´æÈ¡ÎÊÌâ£¬½øÈëµ÷ÊÔÕûÌå´úÂë½×¶Î 
-//µ÷ÊÔ½×¶Î£º
-//20200911:ÎŞ·¨ÂòÖíÂôÖí£¬Î´Íê³Écheck3²Ù×÷ÏÂ Í³¼ÆÃ¿Ö»ÖíµÄĞÅÏ¢
+//è§£å†³æ–‡ä»¶å­˜å–é—®é¢˜ï¼Œè¿›å…¥è°ƒè¯•æ•´ä½“ä»£ç é˜¶æ®µ 
+//è°ƒè¯•é˜¶æ®µï¼š
+//20200911:æ— æ³•ä¹°çŒªå–çŒª
 
 #include<iostream>
 #include<fstream>
@@ -20,68 +20,68 @@
 #include<algorithm>
 using namespace std;
 
-double money;				//×Ê½ğĞÅÏ¢
+double money;				//èµ„é‡‘ä¿¡æ¯
 int month, day;
-int sell_count;				//ÏúÊÛ´ÎÊı
-int allpig;					//ÖíÈ¦ÀïÈ«²¿µÄÖí
+int sell_count;				//é”€å”®æ¬¡æ•°
+int allpig;					//çŒªåœˆé‡Œå…¨éƒ¨çš„çŒª
 
 struct pig_info
 {
-	double weight;			//ÖíµÄÌåÖØ£¬Ê¹ÓÃÇ§¿Ë×÷Îªµ¥Î»
-	int species;			//ÖíµÄÖÖÀà£º1´ú±íºÚÖí£¬2´ú±íĞ¡»¨Öí£¬3´ú±í´ó»¨°×Öí
-	int growday=0;			//ÀÛ¼ÆËÇÑøÌìÊı
-	int growmonth=0;		//ÀÛ¼ÆËÇÑøÔÂÊı
-	int num;				//ÖíµÄ±àºÅ
-	pig_info* next;			//Ö¸ÏòÏÂÒ»½ÚµãµÄÖ¸Õë
+	double weight;			//çŒªçš„ä½“é‡ï¼Œä½¿ç”¨åƒå…‹ä½œä¸ºå•ä½
+	int species;			//çŒªçš„ç§ç±»ï¼š1ä»£è¡¨é»‘çŒªï¼Œ2ä»£è¡¨å°èŠ±çŒªï¼Œ3ä»£è¡¨å¤§èŠ±ç™½çŒª
+	int growday=0;			//ç´¯è®¡é¥²å…»å¤©æ•°
+	int growmonth=0;		//ç´¯è®¡é¥²å…»æœˆæ•°
+	int num;				//çŒªçš„ç¼–å·
+	pig_info* next;			//æŒ‡å‘ä¸‹ä¸€èŠ‚ç‚¹çš„æŒ‡é’ˆ
 };
 
 class pig_farm
 {
 private:
-	int count;				//ÖíÈ¦ÀïÖíµÄ×ÜÊı
-	int black;				//1´ú±í:ÊÇºÚÖíÖíÈ¦£»  2´ú±í:²»ÊÇºÚÖíÖíÈ¦
-	pig_info* head;			//Í·½Úµã
+	int count;				//çŒªåœˆé‡ŒçŒªçš„æ€»æ•°
+	int black;				//1ä»£è¡¨:æ˜¯é»‘çŒªçŒªåœˆï¼›  2ä»£è¡¨:ä¸æ˜¯é»‘çŒªçŒªåœˆ
+	pig_info* head;			//å¤´èŠ‚ç‚¹
 public:
-	pig_farm();							//×Ô¶¨ÒåÈ±Ê¡¹¹Ôìº¯Êı
-	void addpig(pig_info* ptr);			//¼ÓÈëĞÂµÄÖí
-	bool findpig(int num);				//ÕÒµ½Ä³¸ö±àºÅµÄÖí
-	void insertpig(int species);		//²åÈëÄ³Æ·ÖÖµÄÒ»Ö»Öí
-	int getcount();						//¶Á³öÄ³¸öÖíÈ¦ÄÚÖíµÄ×ÜÊı
-	int getallpigs(pig_farm pf[]);		//¶Á³öÕû¸öÑøÖí³¡µÄÖí×ÜÊı
-	int getgrowmonth(int x);			//¶Á³öÉú³¤µÄÔÂÊı
-	int getgrowday(int x);				//¶Á³öÉú³¤µÄÌìÊı
-	int getspecies(int x);				//¶Á³öÖíµÄÆ·ÖÖ
-	int getspecies1();					//ÕÒ³öÒ»¸öÖíÈ¦ÀïÆ·ÖÖ´úºÅÎª1µÄÖíµÄÊıÄ¿
-	int getspecies2();					//ÕÒ³öÒ»¸öÖíÈ¦ÀïÆ·ÖÖ´úºÅÎª2µÄÖíµÄÊıÄ¿
-	int getspecies3();					//ÕÒ³öÒ»¸öÖíÈ¦ÀïÆ·ÖÖ´úºÅÎª3µÄÖíµÄÊıÄ¿
-	double getprice();					//¼ÆËãÖíµÄÊÛ¼Û
-	double getweight(int x);			//¶Á³öÖíµÄÌåÖØ
-	void setblack(int x);				//Éè¶¨xºÅÖíÈ¦ÎªºÚÖíÖíÈ¦
-	int getblack();						//¼ø±ğÊÇ·ñÎªºÚÖíÖíÈ¦
-	void next(int nexttime);			//Ê±¼äÍÆÒÆ£¬Ïà¹ØÊôĞÔÊıÖµ±ä»¯
-	void check_print();					//²éÑ¯²¢´òÓ¡ËùÓĞÖíµÄ»ù±¾ĞÅÏ¢
-	void print_black();					//²éÑ¯²¢´òÓ¡ºÚÖíµÄÌåÖØºÍËÇÑøÊ±¼ä
-	void print_little(int index);		//²éÑ¯²¢´òÓ¡Ğ¡»¨ÖíµÄÌåÖØºÍËÇÑøÊ±¼ä
-	void print_big (int index);		//²éÑ¯²¢´òÓ¡´ó»¨°×ÖíµÄÌåÖØºÍËÇÑøÊ±¼ä
-	void save(ofstream& savefile);		//´æ´¢ÖíÈ¦ÄÚ¸÷ÖÖÖíµÄĞÅÏ¢
-	void clear_pig_farm();				//Çå³ıÖíÈ¦ĞÅÏ¢£¬ÊÍ·ÅÄÚ´æ
-	pig_info* gethead();				//»ñÈ¡Í·½Úµã
+	pig_farm();							//è‡ªå®šä¹‰ç¼ºçœæ„é€ å‡½æ•°
+	void addpig(pig_info* ptr);			//åŠ å…¥æ–°çš„çŒª
+	bool findpig(int num);				//æ‰¾åˆ°æŸä¸ªç¼–å·çš„çŒª
+	void insertpig(int species);		//æ’å…¥æŸå“ç§çš„ä¸€åªçŒª
+	int getcount();						//è¯»å‡ºæŸä¸ªçŒªåœˆå†…çŒªçš„æ€»æ•°
+	int getallpigs(pig_farm pf[]);		//è¯»å‡ºæ•´ä¸ªå…»çŒªåœºçš„çŒªæ€»æ•°
+	int getgrowmonth(int x);			//è¯»å‡ºç”Ÿé•¿çš„æœˆæ•°
+	int getgrowday(int x);				//è¯»å‡ºç”Ÿé•¿çš„å¤©æ•°
+	int getspecies(int x);				//è¯»å‡ºçŒªçš„å“ç§
+	int getspecies1();					//æ‰¾å‡ºä¸€ä¸ªçŒªåœˆé‡Œå“ç§ä»£å·ä¸º1çš„çŒªçš„æ•°ç›®
+	int getspecies2();					//æ‰¾å‡ºä¸€ä¸ªçŒªåœˆé‡Œå“ç§ä»£å·ä¸º2çš„çŒªçš„æ•°ç›®
+	int getspecies3();					//æ‰¾å‡ºä¸€ä¸ªçŒªåœˆé‡Œå“ç§ä»£å·ä¸º3çš„çŒªçš„æ•°ç›®
+	double getprice();					//è®¡ç®—çŒªçš„å”®ä»·
+	double getweight(int x);			//è¯»å‡ºçŒªçš„ä½“é‡
+	void setblack(int x);				//è®¾å®šxå·çŒªåœˆä¸ºé»‘çŒªçŒªåœˆ
+	int getblack();						//é‰´åˆ«æ˜¯å¦ä¸ºé»‘çŒªçŒªåœˆ
+	void next(int nexttime);			//æ—¶é—´æ¨ç§»ï¼Œç›¸å…³å±æ€§æ•°å€¼å˜åŒ–
+	void check_print();					//æŸ¥è¯¢å¹¶æ‰“å°æ‰€æœ‰çŒªçš„åŸºæœ¬ä¿¡æ¯
+	void print_black();					//æŸ¥è¯¢å¹¶æ‰“å°é»‘çŒªçš„ä½“é‡å’Œé¥²å…»æ—¶é—´
+	void print_little(int index);		//æŸ¥è¯¢å¹¶æ‰“å°å°èŠ±çŒªçš„ä½“é‡å’Œé¥²å…»æ—¶é—´
+	void print_big (int index);		//æŸ¥è¯¢å¹¶æ‰“å°å¤§èŠ±ç™½çŒªçš„ä½“é‡å’Œé¥²å…»æ—¶é—´
+	void save(ofstream& savefile);		//å­˜å‚¨çŒªåœˆå†…å„ç§çŒªçš„ä¿¡æ¯
+	void clear_pig_farm();				//æ¸…é™¤çŒªåœˆä¿¡æ¯ï¼Œé‡Šæ”¾å†…å­˜
+	pig_info* gethead();				//è·å–å¤´èŠ‚ç‚¹
 };
 
 /*
-ÆúÓÃµÄ½á¹¹ÌåË¼Â·
+å¼ƒç”¨çš„ç»“æ„ä½“æ€è·¯
 struct single_pigfarm
 {
-	int num;				//µ¥¸öÖíÈ¦µÄ±àºÅ
-	int total;				//µ¥¸öÖíÈ¦ÄÚ×ÜÖíÊıÄ¿
-	int small, big, black;	//¶ÔÓ¦Ğ¡»¨Öí¡¢´ó»¨°×Öí¡¢ºÚÖíµÄÊıÄ¿
-	pig_info info[10];		//ÖíÈ¦×î¶àÊ®Ö»ÖíµÄĞÅÏ¢
+	int num;				//å•ä¸ªçŒªåœˆçš„ç¼–å·
+	int total;				//å•ä¸ªçŒªåœˆå†…æ€»çŒªæ•°ç›®
+	int small, big, black;	//å¯¹åº”å°èŠ±çŒªã€å¤§èŠ±ç™½çŒªã€é»‘çŒªçš„æ•°ç›®
+	pig_info info[10];		//çŒªåœˆæœ€å¤šååªçŒªçš„ä¿¡æ¯
 
-	single_pigfarm* next;	//Ö¸ÏòÁ´±íÏÂÒ»¸ö½ÚµãµÄÖ¸Õë
+	single_pigfarm* next;	//æŒ‡å‘é“¾è¡¨ä¸‹ä¸€ä¸ªèŠ‚ç‚¹çš„æŒ‡é’ˆ
 };
-single_pigfarm* create_and_init()					//´´½¨²¢³õÊ¼»¯È«¿ÕµÄÖíÈ¦Á´±í
+single_pigfarm* create_and_init()					//åˆ›å»ºå¹¶åˆå§‹åŒ–å…¨ç©ºçš„çŒªåœˆé“¾è¡¨
 {
-	single_pigfarm* head = new single_pigfarm;		//ÏÈ´´½¨²¢³õÊ¼»¯Á´±íÍ·½Úµã
+	single_pigfarm* head = new single_pigfarm;		//å…ˆåˆ›å»ºå¹¶åˆå§‹åŒ–é“¾è¡¨å¤´èŠ‚ç‚¹
 	head->num = 0;
 	head->total = 0;
 	head->small = 0;
@@ -93,7 +93,7 @@ single_pigfarm* create_and_init()					//´´½¨²¢³õÊ¼»¯È«¿ÕµÄÖíÈ¦Á´±í
 		head->info[j].species = 0;
 		head->info[j].weight = 0.0;
 	}
-	//p1Îª±¾´Î²Ù×÷½Úµã£¬p2ÎªÇ°Ò»½Úµã
+	//p1ä¸ºæœ¬æ¬¡æ“ä½œèŠ‚ç‚¹ï¼Œp2ä¸ºå‰ä¸€èŠ‚ç‚¹
 	single_pigfarm* p1 = head;
 	for (int i = 1; i < 100; i++)
 	{
@@ -125,7 +125,7 @@ single_pigfarm* create_and_init()					//´´½¨²¢³õÊ¼»¯È«¿ÕµÄÖíÈ¦Á´±í
 }
 */
 
-pig_farm::pig_farm()					//×Ô¶¨Òå¹¹Ôìº¯ÊıÓÃÓÚ³õÊ¼»¯
+pig_farm::pig_farm()					//è‡ªå®šä¹‰æ„é€ å‡½æ•°ç”¨äºåˆå§‹åŒ–
 {
 	count = 0;
 	black = 0;
@@ -136,20 +136,20 @@ void pig_farm::addpig(pig_info* ptr)
 {
 	count++;
 	ptr->next = nullptr;
-	if (head == nullptr)				//µÚÒ»Ö»ÖíÈëÈ¦µÄÇé¿ö
+	if (head == nullptr)				//ç¬¬ä¸€åªçŒªå…¥åœˆçš„æƒ…å†µ
 		head = ptr;
 	else
-	{									//ºóĞøÖíÈëÈ¦µÄÇé¿ö
-		pig_info* q = head;				//ÓÃ»î¶¯½Úµãq´ÓÍ·É¨Ãèµ½Ä©Î²
+	{									//åç»­çŒªå…¥åœˆçš„æƒ…å†µ
+		pig_info* q = head;				//ç”¨æ´»åŠ¨èŠ‚ç‚¹qä»å¤´æ‰«æåˆ°æœ«å°¾
 		while ((q->next) != nullptr)
 			q = q->next;
-		q->next = ptr;					//q½ÚµãÔÚÄ©Î²Ê±£¬°ÑĞÂ½ø½Úµã×÷ÎªĞÂµÄÎ²½áµãÁ¬½Ó
+		q->next = ptr;					//qèŠ‚ç‚¹åœ¨æœ«å°¾æ—¶ï¼ŒæŠŠæ–°è¿›èŠ‚ç‚¹ä½œä¸ºæ–°çš„å°¾ç»“ç‚¹è¿æ¥
 	}
 }
 
 bool pig_farm::findpig(int num)
 {
-	pig_info* ptr = head;				//»î¶¯½Úµãptr´ÓÍ·µ½Î²±éÀúÒ»´Î£¬Ñ°ÕÒÖ¸¶¨±àºÅµÄÖí
+	pig_info* ptr = head;				//æ´»åŠ¨èŠ‚ç‚¹pträ»å¤´åˆ°å°¾éå†ä¸€æ¬¡ï¼Œå¯»æ‰¾æŒ‡å®šç¼–å·çš„çŒª
 	while (ptr)
 	{
 		if (ptr->num == num)
@@ -163,9 +163,9 @@ bool pig_farm::findpig(int num)
 void pig_farm::insertpig(int species)
 {
 	pig_info* ptr = new pig_info;
-	srand((unsigned)time(NULL));			//¸ù¾İÊ±¼äÉèÖÃËæ»úÊıÖÖ×Ó
+	srand((unsigned)time(NULL));			//æ ¹æ®æ—¶é—´è®¾ç½®éšæœºæ•°ç§å­
 	ptr->species = species;
-	ptr->weight = double(20 + rand() % 30);	//È¡20~50Ö®¼äµÄËæ»úÕûÊı×÷ÎªÌåÖØ³õÊ¼Öµ
+	ptr->weight = double(20 + rand() % 30);	//å–20~50ä¹‹é—´çš„éšæœºæ•´æ•°ä½œä¸ºä½“é‡åˆå§‹å€¼
 	ptr->growday = 0;
 	ptr->growmonth = 0;
 	if (head == nullptr)
@@ -236,7 +236,7 @@ int pig_farm::getgrowday(int x)
 {
 	pig_info* ptr = head;
 	for (int i = 0; i < x && ptr; i++)
-		ptr = ptr->next;				//»î¶¯Ö¸ÕëptrÒÆ¶¯µ½ÏàÓ¦Î»ÖÃ¶ÁÈ¡growday
+		ptr = ptr->next;				//æ´»åŠ¨æŒ‡é’ˆptrç§»åŠ¨åˆ°ç›¸åº”ä½ç½®è¯»å–growday
 	int growday = ptr->growday;
 	return growday;
 }
@@ -370,13 +370,13 @@ void pig_farm::check_print()
 {
 	if (count == 0)
 	{
-		cout << "Õâ¸öÖíÈ¦ÊÇ¿ÕµÄ" << endl;
+		cout << "è¿™ä¸ªçŒªåœˆæ˜¯ç©ºçš„" << endl;
 		return;
 	}
 	else if (black == 1)
-		cout << "Õâ¸öÊÇºÚÖíÖíÈ¦" << endl;
+		cout << "è¿™ä¸ªæ˜¯é»‘çŒªçŒªåœˆ" << endl;
 	else
-		cout << "Õâ¸ö²»ÊÇºÚÖíÖíÈ¦" << endl;
+		cout << "è¿™ä¸ªä¸æ˜¯é»‘çŒªçŒªåœˆ" << endl;
 	pig_info* ptr = head;
 	while (ptr)
 	{
@@ -387,15 +387,15 @@ void pig_farm::check_print()
 			day -= 30;
 			month++;
 		}
-		cout << "×Ü¹²ÓĞ" << count << "Í·Öí" << endl;
+		cout << "æ€»å…±æœ‰" << count << "å¤´çŒª" << endl;
 		int index = ptr->num;
-		cout << index << "ºÅÖí×Ü¼ÆËÇÑøÁË" << month << "¸öÔÂ" << day << "Ìì£¬ÖØÁ¿Îª£º" << ptr->weight << "Kg£¬";
+		cout << index << "å·çŒªæ€»è®¡é¥²å…»äº†" << month << "ä¸ªæœˆ" << day << "å¤©ï¼Œé‡é‡ä¸ºï¼š" << ptr->weight << "Kgï¼Œ";
 		if (ptr->species == 1)
-			cout << "ÖÖÀàÊÇºÚÖí" << endl;
+			cout << "ç§ç±»æ˜¯é»‘çŒª" << endl;
 		if (ptr->species == 2)
-			cout << "ÖÖÀàÊÇĞ¡»¨Öí" << endl;
+			cout << "ç§ç±»æ˜¯å°èŠ±çŒª" << endl;
 		if (ptr->species == 3)
-			cout << "ÖÖÀàÊÇ´ó»¨°×Öí" << endl;
+			cout << "ç§ç±»æ˜¯å¤§èŠ±ç™½çŒª" << endl;
 		ptr = ptr->next;
 	}
 }
@@ -413,7 +413,7 @@ void pig_farm::print_black()
 			month++;
 		}
 		int index = ptr->num;
-		cout << index << "ºÅºÚÖí×Ü¼ÆËÇÑøÁË" << month << "¸öÔÂ" << day << "Ìì£¬ÖØÁ¿Îª£º" << ptr->weight << "Kg" << endl;
+		cout << index << "å·é»‘çŒªæ€»è®¡é¥²å…»äº†" << month << "ä¸ªæœˆ" << day << "å¤©ï¼Œé‡é‡ä¸ºï¼š" << ptr->weight << "Kg" << endl;
 		p1 = ptr->next;
 		ptr = p1;
 	}
@@ -429,7 +429,7 @@ void pig_farm::print_little(int index)
 		{
 			if (flag)
 			{
-				cout << "µÚ" << index << "ºÅÖíÈ¦ÖĞ£º" << endl;
+				cout << "ç¬¬" << index << "å·çŒªåœˆä¸­ï¼š" << endl;
 				flag = 0;
 			}
 			int month = ptr->growmonth;
@@ -440,7 +440,7 @@ void pig_farm::print_little(int index)
 				month++;
 			}
 			int index = ptr->num;
-			cout << index << "ºÅĞ¡»¨Öí×Ü¼ÆËÇÑøÁË" << month << "¸öÔÂ" << day << "Ìì£¬ÖØÁ¿Îª£º" << ptr->weight << "Kg" << endl;
+			cout << index << "å·å°èŠ±çŒªæ€»è®¡é¥²å…»äº†" << month << "ä¸ªæœˆ" << day << "å¤©ï¼Œé‡é‡ä¸ºï¼š" << ptr->weight << "Kg" << endl;
 			p1 = ptr->next;
 			ptr = p1;
 		}
@@ -462,7 +462,7 @@ void pig_farm::print_big(int index)
 		{
 			if (flag)
 			{
-				cout << "µÚ" << index << "ºÅÖíÈ¦ÖĞ£º" << endl;
+				cout << "ç¬¬" << index << "å·çŒªåœˆä¸­ï¼š" << endl;
 				flag = 0;
 			}
 			int month = ptr->growmonth;
@@ -473,7 +473,7 @@ void pig_farm::print_big(int index)
 				month++;
 			}
 			int index = ptr->num;
-			cout << index << "ºÅ´ó»¨°×Öí×Ü¼ÆËÇÑøÁË" << month << "¸öÔÂ" << day << "Ìì£¬ÖØÁ¿Îª£º" << ptr->weight << "Kg" << endl;
+			cout << index << "å·å¤§èŠ±ç™½çŒªæ€»è®¡é¥²å…»äº†" << month << "ä¸ªæœˆ" << day << "å¤©ï¼Œé‡é‡ä¸ºï¼š" << ptr->weight << "Kg" << endl;
 			p1 = ptr->next;
 			ptr = p1;
 		}
@@ -510,7 +510,7 @@ void pig_farm::save(ofstream&savefile)
 {
 	if (head == nullptr)
 	{
-		savefile << '$' << endl;			//$±íÊ¾ÎÄ¼şÄÚÈİÎª¿Õ
+		savefile << '$' << endl;			//$è¡¨ç¤ºæ–‡ä»¶å†…å®¹ä¸ºç©º
 		return;
 	}
 	else
@@ -542,21 +542,21 @@ int get_allpigs(pig_farm pf[])
 
 }
 
-void read_init_info(pig_farm pf[])								//¶ÁÈ¡¡°init_info.txt¡±ÖĞµÄ³õÊ¼ĞÅÏ¢£¬°üÀ¨ÖíÈ¦ĞÅÏ¢ºÍ×Ê½ğĞÅÏ¢
+void read_init_info(pig_farm pf[])								//è¯»å–â€œinit_info.txtâ€ä¸­çš„åˆå§‹ä¿¡æ¯ï¼ŒåŒ…æ‹¬çŒªåœˆä¿¡æ¯å’Œèµ„é‡‘ä¿¡æ¯
 {
 	ifstream get_quanju;
 	get_quanju.open("quanju_data.txt");
 	get_quanju>>allpig>>money>>month>>day>>sell_count; 
 	get_quanju.close();
 	ifstream readfile1;
-	readfile1.open("init_info.txt");							//init_info.txtÎÄ¼ş¸ºÔğ´æ´¢³õÊ¼»¯ËùĞèÒªµÄÖíÈ¦ºÍ×Ê½ğĞÅÏ¢
+	readfile1.open("init_info.txt");							//init_info.txtæ–‡ä»¶è´Ÿè´£å­˜å‚¨åˆå§‹åŒ–æ‰€éœ€è¦çš„çŒªåœˆå’Œèµ„é‡‘ä¿¡æ¯
 	readfile1 >> allpig >> money >> month >> day >> sell_count;
 	readfile1.close();
 	ifstream readfile2;
 	readfile2.open("pig_farm data.txt");
 	if (!readfile2)
 	{
-		cout << "´íÎó£ºÎ´ÄÜ¶ÁÈ¡±£´æÎÄ¼ş" << endl;
+		cout << "é”™è¯¯ï¼šæœªèƒ½è¯»å–ä¿å­˜æ–‡ä»¶" << endl;
 		exit(0);
 	}
 	int x, count;
@@ -583,13 +583,13 @@ void read_init_info(pig_farm pf[])								//¶ÁÈ¡¡°init_info.txt¡±ÖĞµÄ³õÊ¼ĞÅÏ¢£¬°
 	readfile2.close();
 }
 
-void save_pig_farm(pig_farm pf[])								//½«ÖíÈ¦ĞÅÏ¢´æ´¢µ½¡°pig_farm data.txt¡±ÎÄ¼şÖĞ
+void save_pig_farm(pig_farm pf[])								//å°†çŒªåœˆä¿¡æ¯å­˜å‚¨åˆ°â€œpig_farm data.txtâ€æ–‡ä»¶ä¸­
 {
 	ofstream savefile;
 	savefile.open("pig_farm data.txt");
 	if (!savefile)
 	{
-		cout << "´íÎó£ºÎ´ÄÜ´ò¿ª±£´æÎÄ¼ş" << endl;
+		cout << "é”™è¯¯ï¼šæœªèƒ½æ‰“å¼€ä¿å­˜æ–‡ä»¶" << endl;
 		exit(0);
 	}
 	savefile << 1 << endl;
@@ -598,7 +598,7 @@ void save_pig_farm(pig_farm pf[])								//½«ÖíÈ¦ĞÅÏ¢´æ´¢µ½¡°pig_farm data.txt¡±
 	savefile.close();
 }
 
-void save_outpig_info(int outpig_num, int black, int little, int big, double price)		//½«³öÈ¦µÄÖíµÄĞÅÏ¢ºÍÊÛ¼Û´æ´¢µ½¡°outpig_info.txt¡±ÎÄ¼şÖĞ
+void save_outpig_info(int outpig_num, int black, int little, int big, double price)		//å°†å‡ºåœˆçš„çŒªçš„ä¿¡æ¯å’Œå”®ä»·å­˜å‚¨åˆ°â€œoutpig_info.txtâ€æ–‡ä»¶ä¸­
 {
 	ifstream readfile;
 	readfile.open("outpig_info.txt");
@@ -614,7 +614,7 @@ void save_outpig_info(int outpig_num, int black, int little, int big, double pri
 	}
 	else
 		readfile.close();
-	ofstream save("outpig_info.txt", ios::app);			//ios::appÔÚofstreamÏÂ¹¦ÄÜ£ºÈç¹ûÃ»ÓĞÎÄ¼ş£¬Éú³É¿ÕÎÄ¼ş£»Èç¹ûÓĞÎÄ¼ş£¬ÔÚÎÄ¼şÎ²×·¼Ó
+	ofstream save("outpig_info.txt", ios::app);			//ios::appåœ¨ofstreamä¸‹åŠŸèƒ½ï¼šå¦‚æœæ²¡æœ‰æ–‡ä»¶ï¼Œç”Ÿæˆç©ºæ–‡ä»¶ï¼›å¦‚æœæœ‰æ–‡ä»¶ï¼Œåœ¨æ–‡ä»¶å°¾è¿½åŠ 
 	save << sell_count << endl;
 	save << outpig_num << "  " << price << "   " << black << "  " << little << "  " << big << 2000 * black + 1500 * little + 300 * big << endl;
 	save.close();
@@ -626,14 +626,14 @@ void read_outpig_info()
 	read.open("outpig_info.txt");
 	if (!read)
 	{
-		cout << "¶ÁÈ¡³öÈ¦ĞÅÏ¢Ê§°Ü";
+		cout << "è¯»å–å‡ºåœˆä¿¡æ¯å¤±è´¥";
 		exit(0);
 	}
 	char flag;
 	read >> flag;
 	if (flag == '#')
 	{
-		cout << "Î´ÕÒµ½¼ÇÂ¼" << endl;
+		cout << "æœªæ‰¾åˆ°è®°å½•" << endl;
 		return;
 	}
 	int time, outpig_num, sellprice, black, little, big, cost, last = 0;
@@ -647,9 +647,9 @@ void read_outpig_info()
 		}
 		last = time;
 		read >> outpig_num >> sellprice >> black >> little >> big >> cost;
-		cout << "µÚ" << time / 4 + 1 << "Äê";
-		cout << "µÚ" << (time % 4 + 1) << "ÔÂ" << endl;
-		cout << "³öÈ¦ÖíÊı£º" << outpig_num << "   »ñµÃÊÕÒæ£º" << sellprice << "   ¹ºÂòµÄºÚÖíÊı£º" << black << "   ¹ºÂòµÄĞ¡»¨ÖíÊı£º" << little << "   ¹ºÂòµÄ´ó»¨°×ÖíÊı£º" << big << "   »¨·Ñ£º" << cost << endl;
+		cout << "ç¬¬" << time / 4 + 1 << "å¹´";
+		cout << "ç¬¬" << (time % 4 + 1) << "æœˆ" << endl;
+		cout << "å‡ºåœˆçŒªæ•°ï¼š" << outpig_num << "   è·å¾—æ”¶ç›Šï¼š" << sellprice << "   è´­ä¹°çš„é»‘çŒªæ•°ï¼š" << black << "   è´­ä¹°çš„å°èŠ±çŒªæ•°ï¼š" << little << "   è´­ä¹°çš„å¤§èŠ±ç™½çŒªæ•°ï¼š" << big << "   èŠ±è´¹ï¼š" << cost << endl;
 	}
 	read.close();
 }
@@ -660,18 +660,18 @@ void save_quanju_data()
 	savedata.open("quanju_data.txt");
 	if(!savedata)
 	{
-		cout<<"ÎŞ·¨´ò¿ªÎÄ¼ş£¬±£´æÊ§°Ü£¡";
+		cout<<"æ— æ³•æ‰“å¼€æ–‡ä»¶ï¼Œä¿å­˜å¤±è´¥ï¼";
 		exit(0);
 	}
 	else 
 	{
 		savedata<<allpig<<"   "<<money<<"   "<<month<<"   "<<day<<"   "<<sell_count<<endl;
-		cout<<"±£´æ³É¹¦£¡"<<endl;
+		cout<<"ä¿å­˜æˆåŠŸï¼"<<endl;
 		savedata.close();
 	}
 }
 
-void buy_pig(int black, int little, int big, pig_farm pf[])		//²ÎÊıÒÀ´ÎÎªÂòÈëµÄºÚÖíÊıÄ¿£¬Ğ¡°×ÖíÊıÄ¿£¬´ó»¨°×ÖíÊıÄ¿£¬ÒÔ¼°ÀàÊı×é
+void buy_pig(int black, int little, int big, pig_farm pf[])		//å‚æ•°ä¾æ¬¡ä¸ºä¹°å…¥çš„é»‘çŒªæ•°ç›®ï¼Œå°ç™½çŒªæ•°ç›®ï¼Œå¤§èŠ±ç™½çŒªæ•°ç›®ï¼Œä»¥åŠç±»æ•°ç»„
 {
 	while (black--)
 	{
@@ -682,7 +682,7 @@ void buy_pig(int black, int little, int big, pig_farm pf[])		//²ÎÊıÒÀ´ÎÎªÂòÈëµÄº
 				pf[i].insertpig(1);
 				break;
 			}
-			else if (pf[i].gethead() == nullptr)			//Èç¹ûÖíÈ¦Îª¿Õ£¬Éè¶¨ÎªºÚÖíÖíÈ¦£¬²åÈëºÚÖíĞÅÏ¢
+			else if (pf[i].gethead() == nullptr)			//å¦‚æœçŒªåœˆä¸ºç©ºï¼Œè®¾å®šä¸ºé»‘çŒªçŒªåœˆï¼Œæ’å…¥é»‘çŒªä¿¡æ¯
 			{
 				pf[i].insertpig(1);			
 				pf[i].setblack(1);
@@ -714,7 +714,7 @@ void buy_pig(int black, int little, int big, pig_farm pf[])		//²ÎÊıÒÀ´ÎÎªÂòÈëµÄº
 	}
 }
 
-void set_pigfarm(pig_farm pf[])			//Éè¶¨³õÊ¼´æµµ£¬×Ê½ğÁ½Íò£¬ÖíÓĞ200Ö»£¬ÖíµÄÊôĞÔËæ»ú
+void set_pigfarm(pig_farm pf[])			//è®¾å®šåˆå§‹å­˜æ¡£ï¼Œèµ„é‡‘ä¸¤ä¸‡ï¼ŒçŒªæœ‰200åªï¼ŒçŒªçš„å±æ€§éšæœº
 {
 	allpig = 200;
 	money = 20000;
@@ -762,37 +762,37 @@ void print_menu()
 	cout << "\n\n";
 	cout << "            ======================================================\n";
 	cout << '\n';
-	cout << "                                  ÑøÖíÄ£ÄâÆ÷                      \n";
+	cout << "                                  å…»çŒªæ¨¡æ‹Ÿå™¨                      \n";
 	cout << '\n';
-	cout << "                                ÇëÑ¡Ôñ²Ù×÷£º\n";
+	cout << "                                è¯·é€‰æ‹©æ“ä½œï¼š\n";
 	cout << '\n';
-	cout << "                                 1.¿ªÊ¼Ä£Äâ\n";
+	cout << "                                 1.å¼€å§‹æ¨¡æ‹Ÿ\n";
 	cout << '\n';
-	cout << "                                 2.ÈçºÎ³É¹¦Íê³ÉÄ£Äâ£¿\n";
+	cout << "                                 2.å¦‚ä½•æˆåŠŸå®Œæˆæ¨¡æ‹Ÿï¼Ÿ\n";
 	cout << '\n';
-	cout << "                                 3.ÍË³ö\n";
+	cout << "                                 3.é€€å‡º\n";
 	cout << '\n';
 	cout << "            ======================================================\n";
 }
 
 void menu_init()
 {
-	system("cls");		//Ö´ĞĞÇåÆÁ²Ù×÷
+	system("cls");		//æ‰§è¡Œæ¸…å±æ“ä½œ
 	cout << "\n\n";
 	cout << "            ======================================================\n";
-	cout << "                                    ÑøÖí³¡                        \n";
+	cout << "                                    å…»çŒªåœº                        \n";
 	cout << '\n';
-	cout << "                       ÇëÑ¡Ôñ²Ù×÷£º\n";
+	cout << "                       è¯·é€‰æ‹©æ“ä½œï¼š\n";
 	cout << '\n';
-	cout << "                                 1.²éÑ¯\n";
-	cout << "                                 2.³öÈ¦²¢¹ºÖí\n";
-	cout << "                                 3.ÖØĞÂ¿ªÊ¼Ä£Äâ\n";
-	cout << "                                 4.±£´æÄ£ÄâÇé¿ö\n";
-	cout << "                    5.ÏÂÒ»Ìì                      6.ÏÂ¸öÔÂ        \n";
+	cout << "                                 1.æŸ¥è¯¢\n";
+	cout << "                                 2.å‡ºåœˆå¹¶è´­çŒª\n";
+	cout << "                                 3.é‡æ–°å¼€å§‹æ¨¡æ‹Ÿ\n";
+	cout << "                                 4.ä¿å­˜æ¨¡æ‹Ÿæƒ…å†µ\n";
+	cout << "                    5.ä¸‹ä¸€å¤©                      6.ä¸‹ä¸ªæœˆ        \n";
 	cout << '\n';
-	cout << "               µ±Ç°×Ê½ğ£º" << money << "    ×ÜÖíÊı£º" << allpig << "   ËÇÑøÊ±¼ä:"; 
-						    if (month > 0) cout << month << "¸öÔÂ";
-						    if (day >= 0) cout << day << "Ìì";
+	cout << "               å½“å‰èµ„é‡‘ï¼š" << money << "    æ€»çŒªæ•°ï¼š" << allpig << "   é¥²å…»æ—¶é—´:"; 
+						    if (month > 0) cout << month << "ä¸ªæœˆ";
+						    if (day >= 0) cout << day << "å¤©";
 	cout << '\n';
 	cout << "            ======================================================\n";
 }
@@ -801,16 +801,16 @@ void check() {
 	system("cls");
 	cout << "\n\n";
 	cout << "            ======================================================\n";
-	cout << "                                     ²éÑ¯                          \n";
+	cout << "                                     æŸ¥è¯¢                          \n";
 	cout << '\n';
-	cout << "             ÇëÑ¡Ôñ²Ù×÷£º\n";
+	cout << "             è¯·é€‰æ‹©æ“ä½œï¼š\n";
 	cout << '\n';
-	cout << "               1.²éÑ¯Ä³¸öÖíÈ¦ÖíµÄÊıÁ¿ºÍÖÖÀà\n";
-	cout << "               2.²éÑ¯Ä³ÖíÈ¦Ä³Í·ÖíµÄ×´Ì¬ĞÅÏ¢\n";
-	cout << "               3.Í³¼Æµ±Ç°ÑøÖí³¡Ã¿¸öÆ·ÖÖÖíµÄÊıÁ¿ºÍÌåÖØ¡¢ËÇÑøÊ±¼ä·Ö²¼Çé¿ö\n";
-	cout << "               4.²éÑ¯½ü5ÄêÖíµÄÏúÊÛ¼ÇÂ¼ºÍÖíáÌµÄ¹ºÈë¼ÇÂ¼\n";
-	cout << "               5.ÏÔÊ¾µ±Ç°ÑøÖí³¡ÖíµÄËùÓĞĞÅÏ¢\n";
-	cout << "               6.·µ»Ø\n";
+	cout << "               1.æŸ¥è¯¢æŸä¸ªçŒªåœˆçŒªçš„æ•°é‡å’Œç§ç±»\n";
+	cout << "               2.æŸ¥è¯¢æŸçŒªåœˆæŸå¤´çŒªçš„çŠ¶æ€ä¿¡æ¯\n";
+	cout << "               3.ç»Ÿè®¡å½“å‰å…»çŒªåœºæ¯ä¸ªå“ç§çŒªçš„æ•°é‡å’Œä½“é‡ã€é¥²å…»æ—¶é—´åˆ†å¸ƒæƒ…å†µ\n";
+	cout << "               4.æŸ¥è¯¢è¿‘5å¹´çŒªçš„é”€å”®è®°å½•å’ŒçŒªå´½çš„è´­å…¥è®°å½•\n";
+	cout << "               5.æ˜¾ç¤ºå½“å‰å…»çŒªåœºçŒªçš„æ‰€æœ‰ä¿¡æ¯\n";
+	cout << "               6.è¿”å›\n";
 	cout << '\n';
 	cout << "            ======================================================\n";
 }
@@ -830,7 +830,7 @@ int main()
 	readfile.close();
 	allpig = get_allpigs(pf);
 	int mode;
-	cout << "            ÇëÊäÈëÄãÒªÏëÒªµÄ²Ù×÷±àºÅ£º";
+	cout << "            è¯·è¾“å…¥ä½ è¦æƒ³è¦çš„æ“ä½œç¼–å·ï¼š";
 	while (cin >> mode)
 	{
 		switch (mode)
@@ -839,7 +839,7 @@ int main()
 			{
 				menu_init();
 				int choice1;
-				while (cout << "            ÇëÊäÈëÄãÒªÏëÒªµÄ²Ù×÷±àºÅ£º",cin >> choice1)
+				while (cout << "            è¯·è¾“å…¥ä½ è¦æƒ³è¦çš„æ“ä½œç¼–å·ï¼š",cin >> choice1)
 				{
 					switch (choice1)
 					{
@@ -847,50 +847,50 @@ int main()
 						{
 							check();
 							int choice2;
-							while(cout << "            ÇëÊäÈëÄãÒªÏëÒªµÄ²Ù×÷±àºÅ£º",cin >> choice2)
+							while(cout << "            è¯·è¾“å…¥ä½ è¦æƒ³è¦çš„æ“ä½œç¼–å·ï¼š",cin >> choice2)
 							{
 								switch (choice2)
 								{
 									case 1:
 									{
 										int num;
-										cout << "ÇëÊäÈëÖíÈ¦±àºÅ£º";
+										cout << "è¯·è¾“å…¥çŒªåœˆç¼–å·ï¼š";
 										cin >> num;
-										cout << "´ËÖíÈ¦ÓĞ" << pf[num].getcount() << "Í·Öí£¬ÆäÖĞÓĞºÚÖí" << pf[num].getspecies1() << "Í·£¬Ğ¡»¨Öí" << pf[num].getspecies2() << "Í·£¬´ó°×»¨Öí" << pf[num].getspecies3() << "Í·\n";
+										cout << "æ­¤çŒªåœˆæœ‰" << pf[num].getcount() << "å¤´çŒªï¼Œå…¶ä¸­æœ‰é»‘çŒª" << pf[num].getspecies1() << "å¤´ï¼Œå°èŠ±çŒª" << pf[num].getspecies2() << "å¤´ï¼Œå¤§ç™½èŠ±çŒª" << pf[num].getspecies3() << "å¤´\n";
 										break;
 									}
 									case 2: 
 									{
 										int num1, num2;
-										cout << "ÇëÊäÈëÖíÈ¦ºÅ£º";
+										cout << "è¯·è¾“å…¥çŒªåœˆå·ï¼š";
 										cin >> num1;
 										while (1) 
 										{
 											if (num1 >= 0 && num1 < 100 && pf[num1].getcount() != 0)
 												break;
 											else 
-												cout << "´ËÖíÈ¦Îª¿Õ£¬ÇëÖØĞÂÊäÈë"; cin >> num1;
+												cout << "æ­¤çŒªåœˆä¸ºç©ºï¼Œè¯·é‡æ–°è¾“å…¥"; cin >> num1;
 										}
-										cout << "´ËÖíÈ¦¹²ÓĞ" << pf[num1].getcount() << "Í·Öí,ÇëÊäÈëÖíµÄ±àºÅ£º";
+										cout << "æ­¤çŒªåœˆå…±æœ‰" << pf[num1].getcount() << "å¤´çŒª,è¯·è¾“å…¥çŒªçš„ç¼–å·ï¼š";
 										cin >> num2;
 										while (1) 
 										{
 											if (!pf[num1].findpig(num2)) 
 											{
-												cout << "´ËÖí²»´æÔÚ£¬¿ÉÄÜÒÑ³öÈ¦,»òÕß¿ÉÄÜ±àºÅ¹ı´ó£¬ÇëÖØĞÂÊäÈë£º";
+												cout << "æ­¤çŒªä¸å­˜åœ¨ï¼Œå¯èƒ½å·²å‡ºåœˆ,æˆ–è€…å¯èƒ½ç¼–å·è¿‡å¤§ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š";
 												cin >> num2;
 											}
 											else 
 												break;
 										}
-										cout << "´ËÖíÎª";
+										cout << "æ­¤çŒªä¸º";
 										if (pf[num1].getspecies(num2) == 1)
-											cout << "ºÚÖí£¬ÌåÖØÎª";
+											cout << "é»‘çŒªï¼Œä½“é‡ä¸º";
 										if (pf[num1].getspecies(num2) == 2)
-											cout << "Ğ¡»¨Öí£¬ÌåÖØÎª";
+											cout << "å°èŠ±çŒªï¼Œä½“é‡ä¸º";
 										if (pf[num1].getspecies(num2) == 3)
-											cout << "´ó°×»¨Öí£¬ÌåÖØÎª";
-										cout << pf[num1].getweight(num2) << "kg,ËÇÑøÊ±¼äÎª";
+											cout << "å¤§ç™½èŠ±çŒªï¼Œä½“é‡ä¸º";
+										cout << pf[num1].getweight(num2) << "kg,é¥²å…»æ—¶é—´ä¸º";
 										int month = pf[num1].getgrowmonth(num2), day = pf[num1].getgrowday(num2);
 										while (day >= 30) 
 										{
@@ -898,15 +898,15 @@ int main()
 											month++;
 										}
 										if (month > 0)
-											cout << month << "¸öÔÂ"; 
-										cout << day << "Ìì\n";
+											cout << month << "ä¸ªæœˆ"; 
+										cout << day << "å¤©\n";
 										break;
 									}
 									case 3: 
 									{
 										if (pf->gethead() == nullptr)
 										{
-											cout << "Ä¿Ç°ÑøÖí³¡ÄÚÎŞÖí" << endl;
+											cout << "ç›®å‰å…»çŒªåœºå†…æ— çŒª" << endl;
 											break;
 										}
 										else
@@ -927,12 +927,12 @@ int main()
 													continue;
 												}
 											}
-											cout << "µ±Ç°Öí³¡ÖĞ£¬ºÚÖíµÄ×ÜÊıÎª£º" << black_cnt << endl;
+											cout << "å½“å‰çŒªåœºä¸­ï¼Œé»‘çŒªçš„æ€»æ•°ä¸ºï¼š" << black_cnt << endl;
 											for (int i = 0; i < 100; i++)
 											{
 												if (pf[i].getblack() == 1)
 												{
-													cout << "µÚ" << i << "ºÅÖíÈ¦ÊÇºÚÖíÖíÈ¦£¬";
+													cout << "ç¬¬" << i << "å·çŒªåœˆæ˜¯é»‘çŒªçŒªåœˆï¼Œ";
 													pf[i].print_black();
 													continue;
 												}
@@ -940,7 +940,7 @@ int main()
 													continue;
 											}
 											cout << endl;
-											cout << "µ±Ç°Öí³¡ÖĞ£¬Ğ¡»¨ÖíµÄ×ÜÊıÎª£º" << little_cnt << endl;
+											cout << "å½“å‰çŒªåœºä¸­ï¼Œå°èŠ±çŒªçš„æ€»æ•°ä¸ºï¼š" << little_cnt << endl;
 											for (int i = 0; i < 100; i++)
 											{
 												if (pf[i].getblack() != 1)
@@ -952,7 +952,7 @@ int main()
 													continue;
 											}
 											cout << endl;
-											cout << "µ±Ç°Öí³¡ÖĞ£¬´ó»¨°×ÖíµÄ×ÜÊıÎª£º" << big_cnt << endl;
+											cout << "å½“å‰çŒªåœºä¸­ï¼Œå¤§èŠ±ç™½çŒªçš„æ€»æ•°ä¸ºï¼š" << big_cnt << endl;
 											for (int i = 0; i < 100; i++)
 											{
 												if (pf[i].getblack() != 1)
@@ -975,7 +975,7 @@ int main()
 									{
 										for(int i=0;i<100;i++)
 										{
-											cout<<i<<"ºÅÈ¦£¬";
+											cout<<i<<"å·åœˆï¼Œ";
 											pf[i].check_print();
 										}
 										break;
@@ -993,7 +993,7 @@ int main()
 						{
 							if(month+day/30<3)
 							{
-								cout<<"ËÇÑøÊ±¼ä²»×ã3¸öÔÂ,»òÕß¾àÀëÉÏ´Î³öÈ¦ºóµÄËÇÑøÊ±¼ä²»×ã3¸öÔÂ"<<endl;
+								cout<<"é¥²å…»æ—¶é—´ä¸è¶³3ä¸ªæœˆ,æˆ–è€…è·ç¦»ä¸Šæ¬¡å‡ºåœˆåçš„é¥²å…»æ—¶é—´ä¸è¶³3ä¸ªæœˆ"<<endl;
 								break;
 							}
 							double sellprice=0.0;
@@ -1001,7 +1001,7 @@ int main()
 								sellprice+=pf[i].getprice();
 							int temp=get_allpigs(pf),outpignum=allpig-temp;
 							allpig=temp;
-							cout<<"´Ë´Î³öÈ¦µÄÖíÓĞ"<<outpignum<<"Í·£¬×ÜÌåÊÛ¼ÛÎª:"<<sellprice<<"Ôª\n";
+							cout<<"æ­¤æ¬¡å‡ºåœˆçš„çŒªæœ‰"<<outpignum<<"å¤´ï¼Œæ€»ä½“å”®ä»·ä¸º:"<<sellprice<<"å…ƒ\n";
 							money+=sellprice;
 							int blackpig=0,blank_zj=0,count=0;
 							for(int i=0;i<100;i++)
@@ -1016,22 +1016,22 @@ int main()
 								else 
 									count+=10-pf[i].getcount();
 							}
-							cout << "Î´ÂúµÄºÚÖíÈ¦¿É¹ºÈë" << blackpig << "Í·ºÚÖí£¬Ê£Óà¿ÕÖíÈ¦Êı£º" << blank_zj << endl;
+							cout << "æœªæ»¡çš„é»‘çŒªåœˆå¯è´­å…¥" << blackpig << "å¤´é»‘çŒªï¼Œå‰©ä½™ç©ºçŒªåœˆæ•°ï¼š" << blank_zj << endl;
 							int black = 0, little = 0, big = 0, cost = 0;
-							cout << "ÌáÊ¾£ºÃ¿Í·ºÚÖí2000Ôª£¬Ã¿Í·Ğ¡»¨Öí1500Ôª£¬Ã¿Í·´ó»¨°×Öí3000Ôª£¬µ±Ç°Óà¶î£º" << money << endl;
-							cout << "ÇëÒÀ´ÎÊäÈë±¾´Î¹ºÈëµÄºÚÖí£¬Ğ¡»¨Öí£¬´ó»¨°×ÖíÊı" << endl;
+							cout << "æç¤ºï¼šæ¯å¤´é»‘çŒª2000å…ƒï¼Œæ¯å¤´å°èŠ±çŒª1500å…ƒï¼Œæ¯å¤´å¤§èŠ±ç™½çŒª3000å…ƒï¼Œå½“å‰ä½™é¢ï¼š" << money << endl;
+							cout << "è¯·ä¾æ¬¡è¾“å…¥æœ¬æ¬¡è´­å…¥çš„é»‘çŒªï¼Œå°èŠ±çŒªï¼Œå¤§èŠ±ç™½çŒªæ•°" << endl;
 							while(cin >> black >> little >> big)
 							{
 								cost = 2000 * black + 1500 * little + 3000 * big;
 								if(black>blackpig+blank_zj*10||little>blank_zj*10+count||big>blank_zj*10+count||little+big>blank_zj*10+count)
-									cout<<"ÖíµÄÊıÁ¿³¬¹ıÖí³¡×î´óÁ¿£¬ÇëÖØĞÂÊäÈë£º\n";
+									cout<<"çŒªçš„æ•°é‡è¶…è¿‡çŒªåœºæœ€å¤§é‡ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š\n";
 								else if(money<cost)
-									cout<<"Ê£Óà×Ê½ğ²»×ã£¬ÇëÖØĞÂÊäÈë\n";
+									cout<<"å‰©ä½™èµ„é‡‘ä¸è¶³ï¼Œè¯·é‡æ–°è¾“å…¥\n";
 								else if(((blank_zj-(black-blackpig)/10)*10<=little+big)&&black>blackpig)
-									cout<<"ºÚÖíÓëÆäËûÖí²»ÄÜ»ìÑø£¬ÇëÖØĞÂÊäÈë£º\n";
+									cout<<"é»‘çŒªä¸å…¶ä»–çŒªä¸èƒ½æ··å…»ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š\n";
 								else if(allpig+black+little+big>=1000)
 								{
-									cout<<"ÑøÂúÖí³¡£¬Ä£Äâ·Ç³£³É¹¦£¡"<<endl;
+									cout<<"å…»æ»¡çŒªåœºï¼Œæ¨¡æ‹Ÿéå¸¸æˆåŠŸï¼"<<endl;
 									exit(0);
 								}
 								else 
@@ -1096,14 +1096,14 @@ int main()
 				system("cls");
 				cout << "\n\n";
 				cout << "            ======================================================\n";
-				cout << "                                    °ïÖú                          \n";
+				cout << "                                    å¸®åŠ©                          \n";
 				cout << '\n';
 				cout << '\n';
-				cout << "                  ³õÊ¼Ìõ¼şÊÇ200Ö»Öí£¬ÊôĞÔËæ»ú£¬20000ÔªÆğÊ¼×Ê½ğ\n";
-				cout << "                  ×Ê½ğ²»¿÷¿Õ£¬ÑøÂúÖí³¡£¬Äú¾ÍÓ®ÁË\n";
+				cout << "                  åˆå§‹æ¡ä»¶æ˜¯200åªçŒªï¼Œå±æ€§éšæœºï¼Œ20000å…ƒèµ·å§‹èµ„é‡‘\n";
+				cout << "                  èµ„é‡‘ä¸äºç©ºï¼Œå…»æ»¡çŒªåœºï¼Œæ‚¨å°±èµ¢äº†\n";
 				cout << '\n';
 				cout << '\n';
-				cout << "		                                       ÊäÈë0ÒÔ·µ»Ø\n";
+				cout << "		                                       è¾“å…¥0ä»¥è¿”å›\n";
 				cout << '\n';
 				cout << "            ======================================================\n";
 				cout<<"\n";
