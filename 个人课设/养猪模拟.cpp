@@ -13,10 +13,11 @@
 //20200915:程序目前无明显bug，有时会因为输入的一部分情况，导致程序进程自动退出，继续完善并尝试移植Qt
 //测试阶段结束
 //ver 1.2.0.20200917
-//20200917:C++程序基本达到提交要求，移植Qt时在成员函数上发现addpig函数，链表节点超界的问题，此函数在VS 2019和Dev C++均没有报错
+//20200917:C++程序基本达到提交要求，移植Qt时在成员函数上发现addpig函数，链表节点超界的问题，此函数在VS 2019和Dev C++均没有报错，正在尝试解决
 
 #include<iostream>
 #include<fstream>
+#include<string>
 #include<cstring>
 #include<cstdio>
 #include<cstdlib>
@@ -859,7 +860,6 @@ int main()
 										}
 										else
 										{
-											//pig_info* ptr = pf->gethead();
 											int black_cnt = 0, little_cnt = 0, big_cnt = 0;
 											for (int i = 0; i < 100; i++)
 											{
@@ -968,26 +968,34 @@ int main()
 							int black = 0, little = 0, big = 0, cost = 0;
 							cout << "提示：每头黑猪2000元，每头小花猪1500元，每头大花白猪3000元，当前余额：" << money << endl;
 							cout << "请依次输入本次购入的黑猪，小花猪，大花白猪数" << endl;
-							while(cin >> black >> little >> big)
+							string str1,str2,str3;
+							while(cin>>str1>>str2>>str3)//cin >> black >> little >> big
 							{
-								cost = 2000 * black + 1500 * little + 3000 * big;
-								if(black>blackpig+blank_zj*10||little>blank_zj*10+count||big>blank_zj*10+count||little+big>blank_zj*10+count)
-									cout<<"猪的数量超过猪场最大量，请重新输入：\n";
-								else if(money<cost)
-									cout<<"剩余资金不足，请重新输入\n";
-								else if(((blank_zj-(black-blackpig)/10)*10<=little+big)&&black>blackpig)
-									cout<<"黑猪与其他猪不能混养，请重新输入：\n";
-								else if(allpig+black+little+big>=1000)
+								if (str1.length() <= 10 && str2.length() <= 10 && str3.length() <= 10)
 								{
-									cout<<"养满猪场，模拟非常成功！"<<endl;
-									exit(0);
+									black = stoi(str1);
+									little = stoi(str2);
+									big = stoi(str3);
+									cost = 2000 * black + 1500 * little + 3000 * big;
+									if (black > blackpig + blank_zj * 10 || little > blank_zj * 10 + count || big > blank_zj * 10 + count || little + big > blank_zj * 10 + count)
+										cout << "猪的数量超过猪场最大量，请重新输入：\n";
+									else if (money < cost)
+										cout << "剩余资金不足，请重新输入\n";
+									else if (((blank_zj - (black - blackpig) / 10) * 10 <= little + big) && black > blackpig)
+										cout << "黑猪与其他猪不能混养，请重新输入：\n";
+									else if (allpig + black + little + big >= 1000)
+									{
+										cout << "养满猪场，模拟非常成功！" << endl;
+										exit(0);
+									}
+									else
+										break;
 								}
-								else 
-									break; 
+								else
+									cout << "请输入适当范围的数字" << endl;
 							}
 							money -= cost;
 							allpig += black+little+big;
-							//cout<<allpig<<endl;	
 							buy_pig(black,little,big,pf);
 							save_outpig_info(outpignum,black,little,big,sellprice);
 							sell_count++;
@@ -996,9 +1004,6 @@ int main()
 								day-=30;
 								month++;
 							}
-							//month-=3;
-							//cin.get(); 
-							//cin.get(); 
 							menu_init();
 							break;
 						}
@@ -1052,8 +1057,8 @@ int main()
 				cout << "                                    帮助                          \n";
 				cout << '\n';
 				cout << '\n';
-				cout << "                  初始条件是200只猪，属性随机，20000元起始资金\n";
-				cout << "                  资金不亏空，养满猪场，您就赢了\n";
+				cout << "                 初始条件是200只猪，属性随机，20000元起始资金\n";
+				cout << "                 资金不亏空，养满猪场，您就赢了\n";
 				cout << '\n';
 				cout << '\n';
 				cout << "		                                       输入0以返回\n";
