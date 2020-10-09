@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/Desktop.jpg</file>
+        <file>Image/Football_Match_backgroud_image.jpg</file>
+        <file>Image/football_field_1.jpg</file>
+        <file>Image/football_field_2.jpg</file>
+        <file>Image/football_field_11.jpg</file>
+        <file>Image/football_field_21.jpg</file>
+        <file>Image/Football_Manager_2021.jpg</file>
+        <file>Image/fifa-19-neymar(1).jpg</file>
+        <file>Image/match_background.jpg</file>
+        <file>Image/match_field_2.jpg</file>
+        <file>Image/training_1.jpg</file>
+        <file>Image/football_manager_tmp.jpg</file>
+        <file>Image/MidTalk.jpg</file>
+    </qresource>
+</RCC>
