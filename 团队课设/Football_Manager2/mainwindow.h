@@ -45,6 +45,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+
     void createTeam();
     void chooseCaptain();
     void chooseViceCaptain();
@@ -76,6 +77,9 @@ public:
     player forward1,forward2,forward3,forward4,forward5,forward6,forward7;
     player midField1,midField2,midField3,midField4,midField5,midField6,midField7;
     player back1,back2,back3,back4,back5,back6,back7;
+    player teamPlayers[23];
+    player tbPlayers[12];
+
 //    QString goalKeeper1 = QString("");
 //    QString goalKeeper2 = QString("");
 
@@ -102,8 +106,7 @@ public:
 //    QString back5 = QString("");
 //    QString back6 = QString("");
 //    QString back7 = QString("");
-
-    QString teamPlayers[23];//球队球员
+//    QString teamPlayers[23];//球队球员
 
     QString captian = QString("");
     QString viceCaptain = QString("");
@@ -120,20 +123,25 @@ public:
     QString backTrain2 = QString("");
 
     //上场球员
-    QString p1 = QString("");
-    QString p2 = QString("");
-    QString p3 = QString("");
-    QString p4 = QString("");
-    QString p5 = QString("");
-    QString p6 = QString("");
-    QString p7 = QString("");
-    QString p8 = QString("");
-    QString p9 = QString("");
-    QString p10 = QString("");
-    QString p11 = QString("");
-    QString p[11];//选择上场的球员
+    player p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11;
+    player p[11];
+
+//    QString p1 = QString("");
+//    QString p2 = QString("");
+//    QString p3 = QString("");
+//    QString p4 = QString("");
+//    QString p5 = QString("");
+//    QString p6 = QString("");
+//    QString p7 = QString("");
+//    QString p8 = QString("");
+//    QString p9 = QString("");
+//    QString p10 = QString("");
+//    QString p11 = QString("");
+//    QString p[11];//选择上场的球员
 
     QString formatConfirm = QString("");
+
+    int submission_cnt = 0;
 
     int myGoal;//我方进球数
     int oppGoal;//对方进球数
@@ -230,10 +238,10 @@ public slots:
     void bar();
     void randomYellow();
     void randomRed();
-    void mygoal_30min();
-    void mygoal_41min();
-    void mygoal_60min();
-    void mygoal_85min();
+    void mygoal_1();
+    void mygoal_2();
+    void mygoal_3();
+    void mygoal_4();
     void oppgoal_1();
     void oppgoal_2();
     void oppgoal_3();

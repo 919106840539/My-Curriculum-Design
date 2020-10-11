@@ -48,7 +48,7 @@
      <enum>QFrame::Raised</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="mainMenu">
      <widget class="QFrame" name="frame_3">
@@ -5803,70 +5803,70 @@ border-radius: 7px;</string>
          <item row="0" column="0">
           <widget class="QRadioButton" name="radioButton_13">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
           <widget class="QRadioButton" name="radioButton_18">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="1" column="0">
           <widget class="QRadioButton" name="radioButton_14">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
           <widget class="QRadioButton" name="radioButton_19">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="2" column="0">
           <widget class="QRadioButton" name="radioButton_15">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
           <widget class="QRadioButton" name="radioButton_20">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="3" column="0">
           <widget class="QRadioButton" name="radioButton_16">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="3" column="1">
           <widget class="QRadioButton" name="radioButton_21">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="4" column="0">
           <widget class="QRadioButton" name="radioButton_17">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="4" column="1">
           <widget class="QRadioButton" name="radioButton_22">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -5880,11 +5880,28 @@ border-radius: 7px;</string>
          <item row="5" column="1">
           <widget class="QRadioButton" name="radioButton_23">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QPushButton" name="conFirmBtn_1">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>320</y>
+          <width>151</width>
+          <height>39</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton { background-color: rgb(0, 120, 255); border-radius: 10px; color: rgb(255, 255, 255); font: 12pt &quot;黑体&quot;;} QPushButton:hover { background-color: rgb(46, 231, 253); }
+</string>
+        </property>
+        <property name="text">
+         <string>确认</string>
+        </property>
        </widget>
       </widget>
      </widget>
@@ -6065,103 +6082,110 @@ border-radius: 7px;</string>
          <item row="3" column="1">
           <widget class="QRadioButton" name="radioButton_33">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="3" column="0">
-          <widget class="QRadioButton" name="radioButton_30">
+          <widget class="QRadioButton" name="radioButton_27">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="4" column="0">
-          <widget class="QRadioButton" name="radioButton_32">
+          <widget class="QRadioButton" name="radioButton_28">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="0" column="0">
           <widget class="QRadioButton" name="radioButton_24">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="2" column="0">
-          <widget class="QRadioButton" name="radioButton_28">
+          <widget class="QRadioButton" name="radioButton_26">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QRadioButton" name="radioButton_26">
+          <widget class="QRadioButton" name="radioButton_25">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="5" column="1">
           <widget class="QRadioButton" name="radioButton_35">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QRadioButton" name="radioButton_31">
+          <widget class="QRadioButton" name="radioButton_32">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QRadioButton" name="radioButton_29">
+          <widget class="QRadioButton" name="radioButton_31">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QRadioButton" name="radioButton_27">
+          <widget class="QRadioButton" name="radioButton_30">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="4" column="1">
           <widget class="QRadioButton" name="radioButton_34">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="5" column="0">
-          <widget class="QRadioButton" name="radioButton_25">
+          <widget class="QRadioButton" name="radioButton_29">
            <property name="text">
-            <string>RadioButton</string>
+            <string/>
            </property>
           </widget>
          </item>
         </layout>
        </widget>
+       <widget class="QPushButton" name="conFirmBtn_2">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>320</y>
+          <width>151</width>
+          <height>39</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton { background-color: rgb(0, 120, 255); border-radius: 10px; color: rgb(255, 255, 255); font: 12pt &quot;黑体&quot;;} QPushButton:hover { background-color: rgb(46, 231, 253); }
+</string>
+        </property>
+        <property name="text">
+         <string>确认</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>960</width>
-     <height>26</height>
-    </rect>
-   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

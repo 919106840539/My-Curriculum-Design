@@ -1738,11 +1738,11 @@ MainWindow::MainWindow(QWidget *parent) :
         oppteam[18].players[10].position = QString("门将/右脚");
     }
 
-    this->setFixedSize(960,540);
+    this->setFixedSize(960,520);
     this->setWindowTitle("Football Manager 2021");
 
     //设置启动时默认页面
-    ui->stackedWidget->setCurrentIndex(20);
+    ui->stackedWidget->setCurrentIndex(0);
 
     //“开始游戏”按钮
     connect(ui->startBtn,&QPushButton::clicked,[=](){
@@ -2000,6 +2000,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper1.is_p = players[i].is_p;
                         goalKeeper1.transferfee = players[i].transferfee;
                         goalKeeper1.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2017,6 +2018,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper2.is_p = players[i].is_p;
                         goalKeeper2.transferfee = players[i].transferfee;
                         goalKeeper2.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2038,6 +2040,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper1.is_p = players[i].is_p;
                         goalKeeper1.transferfee = players[i].transferfee;
                         goalKeeper1.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2055,6 +2058,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper2.is_p = players[i].is_p;
                         goalKeeper2.transferfee = players[i].transferfee;
                         goalKeeper2.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2076,6 +2080,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper1.is_p = players[i].is_p;
                         goalKeeper1.transferfee = players[i].transferfee;
                         goalKeeper1.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2093,6 +2098,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper2.is_p = players[i].is_p;
                         goalKeeper2.transferfee = players[i].transferfee;
                         goalKeeper2.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2114,6 +2120,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper1.is_p = players[i].is_p;
                         goalKeeper1.transferfee = players[i].transferfee;
                         goalKeeper1.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2131,6 +2138,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper2.is_p = players[i].is_p;
                         goalKeeper2.transferfee = players[i].transferfee;
                         goalKeeper2.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2152,6 +2160,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper1.is_p = players[i].is_p;
                         goalKeeper1.transferfee = players[i].transferfee;
                         goalKeeper1.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2169,6 +2178,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper2.is_p = players[i].is_p;
                         goalKeeper2.transferfee = players[i].transferfee;
                         goalKeeper2.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2190,6 +2200,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper1.is_p = players[i].is_p;
                         goalKeeper1.transferfee = players[i].transferfee;
                         goalKeeper1.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2207,6 +2218,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper2.is_p = players[i].is_p;
                         goalKeeper2.transferfee = players[i].transferfee;
                         goalKeeper2.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2228,6 +2240,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper1.is_p = players[i].is_p;
                         goalKeeper1.transferfee = players[i].transferfee;
                         goalKeeper1.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2245,6 +2258,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         goalKeeper2.is_p = players[i].is_p;
                         goalKeeper2.transferfee = players[i].transferfee;
                         goalKeeper2.hurt = players[i].hurt;
+                        break;
                     }
                 }
             }
@@ -2252,32 +2266,89 @@ MainWindow::MainWindow(QWidget *parent) :
         if(ui->checkBox_26->isChecked())
         {
             ckBoxSum++;
-            if (goalKeeper1 == QString(""))
-                goalKeeper1 = QString("阿利松");
-            else if (goalKeeper2 == QString(""))
-                goalKeeper2 = QString("阿利松");
+            if (goalKeeper1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("阿利松"))
+                    {
+                        goalKeeper1.name = players[i].name;
+                        goalKeeper1.age = players[i].age;
+                        goalKeeper1.rating = players[i].rating;
+                        goalKeeper1.position = players[i].position;
+                        goalKeeper1.weeksalary = players[i].weeksalary;
+                        goalKeeper1.is_p = players[i].is_p;
+                        goalKeeper1.transferfee = players[i].transferfee;
+                        goalKeeper1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (goalKeeper2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("阿利松"))
+                    {
+                        goalKeeper2.name = players[i].name;
+                        goalKeeper2.age = players[i].age;
+                        goalKeeper2.rating = players[i].rating;
+                        goalKeeper2.position = players[i].position;
+                        goalKeeper2.weeksalary = players[i].weeksalary;
+                        goalKeeper2.is_p = players[i].is_p;
+                        goalKeeper2.transferfee = players[i].transferfee;
+                        goalKeeper2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_27->isChecked())
         {
             ckBoxSum++;
-            if (goalKeeper1 == QString(""))
-                goalKeeper1 = QString("德赫亚");
-            else if (goalKeeper2 == QString(""))
-                goalKeeper2 = QString("德赫亚");
+            if (goalKeeper1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("德赫亚"))
+                    {
+                        goalKeeper1.name = players[i].name;
+                        goalKeeper1.age = players[i].age;
+                        goalKeeper1.rating = players[i].rating;
+                        goalKeeper1.position = players[i].position;
+                        goalKeeper1.weeksalary = players[i].weeksalary;
+                        goalKeeper1.is_p = players[i].is_p;
+                        goalKeeper1.transferfee = players[i].transferfee;
+                        goalKeeper1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (goalKeeper2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("德赫亚"))
+                    {
+                        goalKeeper2.name = players[i].name;
+                        goalKeeper2.age = players[i].age;
+                        goalKeeper2.rating = players[i].rating;
+                        goalKeeper2.position = players[i].position;
+                        goalKeeper2.weeksalary = players[i].weeksalary;
+                        goalKeeper2.is_p = players[i].is_p;
+                        goalKeeper2.transferfee = players[i].transferfee;
+                        goalKeeper2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
-        qDebug()<<"goalKeeper1:"<<goalKeeper1;
-        qDebug()<<"goalKeeper2:"<<goalKeeper2;
+        qDebug()<<"goalKeeper1:"<<goalKeeper1.name;
+        qDebug()<<"goalKeeper2:"<<goalKeeper2.name;
         qDebug()<<"ckBoxSum:"<<ckBoxSum;
         salarysum1 = 0;
-        for (int i=0;i<100;i++)
-        {
-            if (goalKeeper1 == players[i].name)
-                salarysum1 += players[i].weeksalary;
-            else if (goalKeeper2 == players[i].name)
-                salarysum1 += players[i].weeksalary;
-            else
-                continue;
-        }
+        salarysum1 += goalKeeper1.weeksalary;
+        salarysum1 += goalKeeper2.weeksalary;
         qDebug()<<"salarysum1:"<<salarysum1;
 
         //如果选择的门将数目超过2个，弹窗警告
@@ -3186,643 +3257,4433 @@ MainWindow::MainWindow(QWidget *parent) :
         if(ui->checkBox->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("莱万多夫斯基");
-            else if (forward2 == QString())
-                forward2 = QString("莱万多夫斯基");
-            else if (forward3 == QString())
-                forward3 = QString("莱万多夫斯基");
-            else if (forward4 == QString())
-                forward4 = QString("莱万多夫斯基");
-            else if (forward5 == QString())
-                forward5 = QString("莱万多夫斯基");
-            else if (forward6 == QString())
-                forward6 = QString("莱万多夫斯基");
-            else if (forward7 == QString())
-                forward7 = QString("莱万多夫斯基");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("莱万多夫斯基"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("莱万多夫斯基"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("莱万多夫斯基"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("莱万多夫斯基"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("莱万多夫斯基"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("莱万多夫斯基"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("莱万多夫斯基"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_2->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("穆勒");
-            else if (forward2 == QString())
-                forward2 = QString("穆勒");
-            else if (forward3 == QString())
-                forward3 = QString("穆勒");
-            else if (forward4 == QString())
-                forward4 = QString("穆勒");
-            else if (forward5 == QString())
-                forward5 = QString("穆勒");
-            else if (forward6 == QString())
-                forward6 = QString("穆勒");
-            else if (forward7 == QString())
-                forward7 = QString("穆勒");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("穆勒"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("穆勒"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("穆勒"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("穆勒"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("穆勒"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("穆勒"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("穆勒"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_3->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("吉鲁");
-            else if (forward2 == QString())
-                forward2 = QString("吉鲁");
-            else if (forward3 == QString())
-                forward3 = QString("吉鲁");
-            else if (forward4 == QString())
-                forward4 = QString("吉鲁");
-            else if (forward5 == QString())
-                forward5 = QString("吉鲁");
-            else if (forward6 == QString())
-                forward6 = QString("吉鲁");
-            else if (forward7 == QString())
-                forward7 = QString("吉鲁");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("吉鲁"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("吉鲁"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("吉鲁"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("吉鲁"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("吉鲁"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("吉鲁"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("吉鲁"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_4->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("亚伯拉罕");
-            else if (forward2 == QString())
-                forward2 = QString("亚伯拉罕");
-            else if (forward3 == QString())
-                forward3 = QString("亚伯拉罕");
-            else if (forward4 == QString())
-                forward4 = QString("亚伯拉罕");
-            else if (forward5 == QString())
-                forward5 = QString("亚伯拉罕");
-            else if (forward6 == QString())
-                forward6 = QString("亚伯拉罕");
-            else if (forward7 == QString())
-                forward7 = QString("亚伯拉罕");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("亚伯拉罕"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("亚伯拉罕"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("亚伯拉罕"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("亚伯拉罕"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("亚伯拉罕"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("亚伯拉罕"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("亚伯拉罕"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_5->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("维尔纳");
-            else if (forward2 == QString())
-                forward2 = QString("维尔纳");
-            else if (forward3 == QString())
-                forward3 = QString("维尔纳");
-            else if (forward4 == QString())
-                forward4 = QString("维尔纳");
-            else if (forward5 == QString())
-                forward5 = QString("维尔纳");
-            else if (forward6 == QString())
-                forward6 = QString("维尔纳");
-            else if (forward7 == QString())
-                forward7 = QString("维尔纳");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("维尔纳"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("维尔纳"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("维尔纳"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("维尔纳"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("维尔纳"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("维尔纳"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("维尔纳"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_6->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("奥巴梅杨");
-            else if (forward2 == QString())
-                forward2 = QString("奥巴梅杨");
-            else if (forward3 == QString())
-                forward3 = QString("奥巴梅杨");
-            else if (forward4 == QString())
-                forward4 = QString("奥巴梅杨");
-            else if (forward5 == QString())
-                forward5 = QString("奥巴梅杨");
-            else if (forward6 == QString())
-                forward6 = QString("奥巴梅杨");
-            else if (forward7 == QString())
-                forward7 = QString("奥巴梅杨");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("奥巴梅杨"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("奥巴梅杨"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("奥巴梅杨"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("奥巴梅杨"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("奥巴梅杨"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("奥巴梅杨"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("奥巴梅杨"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_7->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("威廉");
-            else if (forward2 == QString())
-                forward2 = QString("威廉");
-            else if (forward3 == QString())
-                forward3 = QString("威廉");
-            else if (forward4 == QString())
-                forward4 = QString("威廉");
-            else if (forward5 == QString())
-                forward5 = QString("威廉");
-            else if (forward6 == QString())
-                forward6 = QString("威廉");
-            else if (forward7 == QString())
-                forward7 = QString("威廉");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("威廉"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("威廉"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("威廉"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("威廉"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("威廉"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("威廉"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("威廉"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_8->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("姆巴佩");
-            else if (forward2 == QString())
-                forward2 = QString("姆巴佩");
-            else if (forward3 == QString())
-                forward3 = QString("姆巴佩");
-            else if (forward4 == QString())
-                forward4 = QString("姆巴佩");
-            else if (forward5 == QString())
-                forward5 = QString("姆巴佩");
-            else if (forward6 == QString())
-                forward6 = QString("姆巴佩");
-            else if (forward7 == QString())
-                forward7 = QString("姆巴佩");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("姆巴佩"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("姆巴佩"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("姆巴佩"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("姆巴佩"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("姆巴佩"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("姆巴佩"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("姆巴佩"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_9->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("内马尔");
-            else if (forward2 == QString())
-                forward2 = QString("内马尔");
-            else if (forward3 == QString())
-                forward3 = QString("内马尔");
-            else if (forward4 == QString())
-                forward4 = QString("内马尔");
-            else if (forward5 == QString())
-                forward5 = QString("内马尔");
-            else if (forward6 == QString())
-                forward6 = QString("内马尔");
-            else if (forward7 == QString())
-                forward7 = QString("内马尔");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("内马尔"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("内马尔"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("内马尔"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("内马尔"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("内马尔"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("内马尔"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("内马尔"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_10->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("迪巴拉");
-            else if (forward2 == QString())
-                forward2 = QString("迪巴拉");
-            else if (forward3 == QString())
-                forward3 = QString("迪巴拉");
-            else if (forward4 == QString())
-                forward4 = QString("迪巴拉");
-            else if (forward5 == QString())
-                forward5 = QString("迪巴拉");
-            else if (forward6 == QString())
-                forward6 = QString("迪巴拉");
-            else if (forward7 == QString())
-                forward7 = QString("迪巴拉");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("迪巴拉"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("迪巴拉"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("迪巴拉"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("迪巴拉"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("迪巴拉"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("迪巴拉"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("迪巴拉"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_11->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("罗纳尔多");
-            else if (forward2 == QString())
-                forward2 = QString("罗纳尔多");
-            else if (forward3 == QString())
-                forward3 = QString("罗纳尔多");
-            else if (forward4 == QString())
-                forward4 = QString("罗纳尔多");
-            else if (forward5 == QString())
-                forward5 = QString("罗纳尔多");
-            else if (forward6 == QString())
-                forward6 = QString("罗纳尔多");
-            else if (forward7 == QString())
-                forward7 = QString("罗纳尔多");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("罗纳尔多"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("罗纳尔多"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("罗纳尔多"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("罗纳尔多"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("罗纳尔多"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("罗纳尔多"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("罗纳尔多"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_12->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("阿扎尔");
-            else if (forward2 == QString())
-                forward2 = QString("阿扎尔");
-            else if (forward3 == QString())
-                forward3 = QString("阿扎尔");
-            else if (forward4 == QString())
-                forward4 = QString("阿扎尔");
-            else if (forward5 == QString())
-                forward5 = QString("阿扎尔");
-            else if (forward6 == QString())
-                forward6 = QString("阿扎尔");
-            else if (forward7 == QString())
-                forward7 = QString("阿扎尔");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("阿扎尔"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("阿扎尔"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("阿扎尔"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("阿扎尔"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("阿扎尔"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("阿扎尔"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("阿扎尔"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_13->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("贝尔");
-            else if (forward2 == QString())
-                forward2 = QString("贝尔");
-            else if (forward3 == QString())
-                forward3 = QString("贝尔");
-            else if (forward4 == QString())
-                forward4 = QString("贝尔");
-            else if (forward5 == QString())
-                forward5 = QString("贝尔");
-            else if (forward6 == QString())
-                forward6 = QString("贝尔");
-            else if (forward7 == QString())
-                forward7 = QString("贝尔");
+            if (forward1.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("贝尔"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("贝尔"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("贝尔"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("贝尔"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("贝尔"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("贝尔"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i=0;i<100;i++)
+                {
+                    if (players[i].name == QString("贝尔"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_14->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("阿森西奥");
-            else if (forward2 == QString())
-                forward2 = QString("阿森西奥");
-            else if (forward3 == QString())
-                forward3 = QString("阿森西奥");
-            else if (forward4 == QString())
-                forward4 = QString("阿森西奥");
-            else if (forward5 == QString())
-                forward5 = QString("阿森西奥");
-            else if (forward6 == QString())
-                forward6 = QString("阿森西奥");
-            else if (forward7 == QString())
-                forward7 = QString("阿森西奥");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿森西奥"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿森西奥"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿森西奥"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿森西奥"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿森西奥"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿森西奥"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿森西奥"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_15->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("罗德里戈");
-            else if (forward2 == QString())
-                forward2 = QString("罗德里戈");
-            else if (forward3 == QString())
-                forward3 = QString("罗德里戈");
-            else if (forward4 == QString())
-                forward4 = QString("罗德里戈");
-            else if (forward5 == QString())
-                forward5 = QString("罗德里戈");
-            else if (forward6 == QString())
-                forward6 = QString("罗德里戈");
-            else if (forward7 == QString())
-                forward7 = QString("罗德里戈");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗德里戈"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗德里戈"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗德里戈"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗德里戈"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗德里戈"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗德里戈"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗德里戈"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_16->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("菲尔米诺");
-            else if (forward2 == QString())
-                forward2 = QString("菲尔米诺");
-            else if (forward3 == QString())
-                forward3 = QString("菲尔米诺");
-            else if (forward4 == QString())
-                forward4 = QString("菲尔米诺");
-            else if (forward5 == QString())
-                forward5 = QString("菲尔米诺");
-            else if (forward6 == QString())
-                forward6 = QString("菲尔米诺");
-            else if (forward7 == QString())
-                forward7 = QString("菲尔米诺");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("菲尔米诺"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("菲尔米诺"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("菲尔米诺"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("菲尔米诺"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("菲尔米诺"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("菲尔米诺"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("菲尔米诺"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_17->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("萨拉赫");
-            else if (forward2 == QString())
-                forward2 = QString("萨拉赫");
-            else if (forward3 == QString())
-                forward3 = QString("萨拉赫");
-            else if (forward4 == QString())
-                forward4 = QString("萨拉赫");
-            else if (forward5 == QString())
-                forward5 = QString("萨拉赫");
-            else if (forward6 == QString())
-                forward6 = QString("萨拉赫");
-            else if (forward7 == QString())
-                forward7 = QString("萨拉赫");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("萨拉赫"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("萨拉赫"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("萨拉赫"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("萨拉赫"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("萨拉赫"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("萨拉赫"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("萨拉赫"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_18->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("马内");
-            else if (forward2 == QString())
-                forward2 = QString("马内");
-            else if (forward3 == QString())
-                forward3 = QString("马内");
-            else if (forward4 == QString())
-                forward4 = QString("马内");
-            else if (forward5 == QString())
-                forward5 = QString("马内");
-            else if (forward6 == QString())
-                forward6 = QString("马内");
-            else if (forward7 == QString())
-                forward7 = QString("马内");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马内"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马内"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马内"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马内"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马内"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马内"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马内"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_28->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("斯特林");
-            else if (forward2 == QString())
-                forward2 = QString("斯特林");
-            else if (forward3 == QString())
-                forward3 = QString("斯特林");
-            else if (forward4 == QString())
-                forward4 = QString("斯特林");
-            else if (forward5 == QString())
-                forward5 = QString("斯特林");
-            else if (forward6 == QString())
-                forward6 = QString("斯特林");
-            else if (forward7 == QString())
-                forward7 = QString("斯特林");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯特林"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯特林"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯特林"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯特林"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯特林"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯特林"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯特林"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_29->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("热苏斯");
-            else if (forward2 == QString())
-                forward2 = QString("热苏斯");
-            else if (forward3 == QString())
-                forward3 = QString("热苏斯");
-            else if (forward4 == QString())
-                forward4 = QString("热苏斯");
-            else if (forward5 == QString())
-                forward5 = QString("热苏斯");
-            else if (forward6 == QString())
-                forward6 = QString("热苏斯");
-            else if (forward7 == QString())
-                forward7 = QString("热苏斯");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("热苏斯"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("热苏斯"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("热苏斯"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("热苏斯"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("热苏斯"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("热苏斯"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("热苏斯"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_30->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("马赫雷斯");
-            else if (forward2 == QString())
-                forward2 = QString("马赫雷斯");
-            else if (forward3 == QString())
-                forward3 = QString("马赫雷斯");
-            else if (forward4 == QString())
-                forward4 = QString("马赫雷斯");
-            else if (forward5 == QString())
-                forward5 = QString("马赫雷斯");
-            else if (forward6 == QString())
-                forward6 = QString("马赫雷斯");
-            else if (forward7 == QString())
-                forward7 = QString("马赫雷斯");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马赫雷斯"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马赫雷斯"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马赫雷斯"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马赫雷斯"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马赫雷斯"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马赫雷斯"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马赫雷斯"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_31->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("阿圭罗");
-            else if (forward2 == QString())
-                forward2 = QString("阿圭罗");
-            else if (forward3 == QString())
-                forward3 = QString("阿圭罗");
-            else if (forward4 == QString())
-                forward4 = QString("阿圭罗");
-            else if (forward5 == QString())
-                forward5 = QString("阿圭罗");
-            else if (forward6 == QString())
-                forward6 = QString("阿圭罗");
-            else if (forward7 == QString())
-                forward7 = QString("阿圭罗");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿圭罗"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿圭罗"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿圭罗"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿圭罗"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿圭罗"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿圭罗"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿圭罗"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_32->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("格列兹曼");
-            else if (forward2 == QString())
-                forward2 = QString("格列兹曼");
-            else if (forward3 == QString())
-                forward3 = QString("格列兹曼");
-            else if (forward4 == QString())
-                forward4 = QString("格列兹曼");
-            else if (forward5 == QString())
-                forward5 = QString("格列兹曼");
-            else if (forward6 == QString())
-                forward6 = QString("格列兹曼");
-            else if (forward7 == QString())
-                forward7 = QString("格列兹曼");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格列兹曼"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格列兹曼"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格列兹曼"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格列兹曼"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格列兹曼"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格列兹曼"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格列兹曼"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_33->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("梅西");
-            else if (forward2 == QString())
-                forward2 = QString("梅西");
-            else if (forward3 == QString())
-                forward3 = QString("梅西");
-            else if (forward4 == QString())
-                forward4 = QString("梅西");
-            else if (forward5 == QString())
-                forward5 = QString("梅西");
-            else if (forward6 == QString())
-                forward6 = QString("梅西");
-            else if (forward7 == QString())
-                forward7 = QString("梅西");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("梅西"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("梅西"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("梅西"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("梅西"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("梅西"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("梅西"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("梅西"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_34->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("苏亚雷斯");
-            else if (forward2 == QString())
-                forward2 = QString("苏亚雷斯");
-            else if (forward3 == QString())
-                forward3 = QString("苏亚雷斯");
-            else if (forward4 == QString())
-                forward4 = QString("苏亚雷斯");
-            else if (forward5 == QString())
-                forward5 = QString("苏亚雷斯");
-            else if (forward6 == QString())
-                forward6 = QString("苏亚雷斯");
-            else if (forward7 == QString())
-                forward7 = QString("苏亚雷斯");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("苏亚雷斯"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if(forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("苏亚雷斯"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if(forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("苏亚雷斯"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("苏亚雷斯"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("苏亚雷斯"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("苏亚雷斯"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("苏亚雷斯"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_35->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("格纳布里");
-            else if (forward2 == QString())
-                forward2 = QString("格纳布里");
-            else if (forward3 == QString())
-                forward3 = QString("格纳布里");
-            else if (forward4 == QString())
-                forward4 = QString("格纳布里");
-            else if (forward5 == QString())
-                forward5 = QString("格纳布里");
-            else if (forward6 == QString())
-                forward6 = QString("格纳布里");
-            else if (forward7 == QString())
-                forward7 = QString("格纳布里");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格纳布里"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格纳布里"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格纳布里"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格纳布里"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格纳布里"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格纳布里"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格纳布里"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_36->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("塞内");
-            else if (forward2 == QString())
-                forward2 = QString("塞内");
-            else if (forward3 == QString())
-                forward3 = QString("塞内");
-            else if (forward4 == QString())
-                forward4 = QString("塞内");
-            else if (forward5 == QString())
-                forward5 = QString("塞内");
-            else if (forward6 == QString())
-                forward6 = QString("塞内");
-            else if (forward7 == QString())
-                forward7 = QString("塞内");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("塞内"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("塞内"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("塞内"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("塞内"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("塞内"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("塞内"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("塞内"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_37->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("哈兰德");
-            else if (forward2 == QString())
-                forward2 = QString("哈兰德");
-            else if (forward3 == QString())
-                forward3 = QString("哈兰德");
-            else if (forward4 == QString())
-                forward4 = QString("哈兰德");
-            else if (forward5 == QString())
-                forward5 = QString("哈兰德");
-            else if (forward6 == QString())
-                forward6 = QString("哈兰德");
-            else if (forward7 == QString())
-                forward7 = QString("哈兰德");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈兰德"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈兰德"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈兰德"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈兰德"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈兰德"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈兰德"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈兰德"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_38->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("布兰特");
-            else if (forward2 == QString())
-                forward2 = QString("布兰特");
-            else if (forward3 == QString())
-                forward3 = QString("布兰特");
-            else if (forward4 == QString())
-                forward4 = QString("布兰特");
-            else if (forward5 == QString())
-                forward5 = QString("布兰特");
-            else if (forward6 == QString())
-                forward6 = QString("布兰特");
-            else if (forward7 == QString())
-                forward7 = QString("布兰特");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("布兰特"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("布兰特"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("布兰特"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("布兰特"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("布兰特"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("布兰特"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("布兰特"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_39->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("罗伊斯");
-            else if (forward2 == QString())
-                forward2 = QString("罗伊斯");
-            else if (forward3 == QString())
-                forward3 = QString("罗伊斯");
-            else if (forward4 == QString())
-                forward4 = QString("罗伊斯");
-            else if (forward5 == QString())
-                forward5 = QString("罗伊斯");
-            else if (forward6 == QString())
-                forward6 = QString("罗伊斯");
-            else if (forward7 == QString())
-                forward7 = QString("罗伊斯");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伊斯"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伊斯"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伊斯"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伊斯"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伊斯"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伊斯"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伊斯"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_40->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("弗兰德");
-            else if (forward2 == QString())
-                forward2 = QString("弗兰德");
-            else if (forward3 == QString())
-                forward3 = QString("弗兰德");
-            else if (forward4 == QString())
-                forward4 = QString("弗兰德");
-            else if (forward5 == QString())
-                forward5 = QString("弗兰德");
-            else if (forward6 == QString())
-                forward6 = QString("弗兰德");
-            else if (forward7 == QString())
-                forward7 = QString("弗兰德");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("弗兰德"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("弗兰德"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("弗兰德"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("弗兰德"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("弗兰德"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("弗兰德"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("弗兰德"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_41->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("伊尔卡迪");
-            else if (forward2 == QString())
-                forward2 = QString("伊尔卡迪");
-            else if (forward3 == QString())
-                forward3 = QString("伊尔卡迪");
-            else if (forward4 == QString())
-                forward4 = QString("伊尔卡迪");
-            else if (forward5 == QString())
-                forward5 = QString("伊尔卡迪");
-            else if (forward6 == QString())
-                forward6 = QString("伊尔卡迪");
-            else if (forward7 == QString())
-                forward7 = QString("伊尔卡迪");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伊尔卡迪"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伊尔卡迪"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伊尔卡迪"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伊尔卡迪"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伊尔卡迪"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伊尔卡迪"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伊尔卡迪"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_42->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("卢卡库");
-            else if (forward2 == QString())
-                forward2 = QString("卢卡库");
-            else if (forward3 == QString())
-                forward3 = QString("卢卡库");
-            else if (forward4 == QString())
-                forward4 = QString("卢卡库");
-            else if (forward5 == QString())
-                forward5 = QString("卢卡库");
-            else if (forward6 == QString())
-                forward6 = QString("卢卡库");
-            else if (forward7 == QString())
-                forward7 = QString("卢卡库");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卢卡库"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卢卡库"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卢卡库"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卢卡库"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卢卡库"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卢卡库"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卢卡库"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if(ui->checkBox_43->isChecked())
         {
             ckBoxSum++;
-            if (forward1 == QString())
-                forward1 = QString("桑切斯");
-            else if (forward2 == QString())
-                forward2 = QString("桑切斯");
-            else if (forward3 == QString())
-                forward3 = QString("桑切斯");
-            else if (forward4 == QString())
-                forward4 = QString("桑切斯");
-            else if (forward5 == QString())
-                forward5 = QString("桑切斯");
-            else if (forward6 == QString())
-                forward6 = QString("桑切斯");
-            else if (forward7 == QString())
-                forward7 = QString("桑切斯");
+            if (forward1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑切斯"))
+                    {
+                        forward1.name = players[i].name;
+                        forward1.age = players[i].age;
+                        forward1.rating = players[i].rating;
+                        forward1.position = players[i].position;
+                        forward1.weeksalary = players[i].weeksalary;
+                        forward1.is_p = players[i].is_p;
+                        forward1.transferfee = players[i].transferfee;
+                        forward1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑切斯"))
+                    {
+                        forward2.name = players[i].name;
+                        forward2.age = players[i].age;
+                        forward2.rating = players[i].rating;
+                        forward2.position = players[i].position;
+                        forward2.weeksalary = players[i].weeksalary;
+                        forward2.is_p = players[i].is_p;
+                        forward2.transferfee = players[i].transferfee;
+                        forward2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑切斯"))
+                    {
+                        forward3.name = players[i].name;
+                        forward3.age = players[i].age;
+                        forward3.rating = players[i].rating;
+                        forward3.position = players[i].position;
+                        forward3.weeksalary = players[i].weeksalary;
+                        forward3.is_p = players[i].is_p;
+                        forward3.transferfee = players[i].transferfee;
+                        forward3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑切斯"))
+                    {
+                        forward4.name = players[i].name;
+                        forward4.age = players[i].age;
+                        forward4.rating = players[i].rating;
+                        forward4.position = players[i].position;
+                        forward4.weeksalary = players[i].weeksalary;
+                        forward4.is_p = players[i].is_p;
+                        forward4.transferfee = players[i].transferfee;
+                        forward4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑切斯"))
+                    {
+                        forward5.name = players[i].name;
+                        forward5.age = players[i].age;
+                        forward5.rating = players[i].rating;
+                        forward5.position = players[i].position;
+                        forward5.weeksalary = players[i].weeksalary;
+                        forward5.is_p = players[i].is_p;
+                        forward5.transferfee = players[i].transferfee;
+                        forward5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑切斯"))
+                    {
+                        forward6.name = players[i].name;
+                        forward6.age = players[i].age;
+                        forward6.rating = players[i].rating;
+                        forward6.position = players[i].position;
+                        forward6.weeksalary = players[i].weeksalary;
+                        forward6.is_p = players[i].is_p;
+                        forward6.transferfee = players[i].transferfee;
+                        forward6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (forward7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑切斯"))
+                    {
+                        forward7.name = players[i].name;
+                        forward7.age = players[i].age;
+                        forward7.rating = players[i].rating;
+                        forward7.position = players[i].position;
+                        forward7.weeksalary = players[i].weeksalary;
+                        forward7.is_p = players[i].is_p;
+                        forward7.transferfee = players[i].transferfee;
+                        forward7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
-        qDebug()<<"forward1:"<<forward1;
-        qDebug()<<"forward2:"<<forward2;
-        qDebug()<<"forward3:"<<forward3;
-        qDebug()<<"forward4:"<<forward4;
-        qDebug()<<"forward5:"<<forward5;
-        qDebug()<<"forward6:"<<forward6;
-        qDebug()<<"forward7:"<<forward7;
+        qDebug()<<"forward1:"<<forward1.name;
+        qDebug()<<"forward2:"<<forward2.name;
+        qDebug()<<"forward3:"<<forward3.name;
+        qDebug()<<"forward4:"<<forward4.name;
+        qDebug()<<"forward5:"<<forward5.name;
+        qDebug()<<"forward6:"<<forward6.name;
+        qDebug()<<"forward7:"<<forward7.name;
         qDebug()<<"ckBoxSum:"<<ckBoxSum;
         salarysum2 = 0;
-        for (int i=0;i<100;i++)
-        {
-            if (forward1 == players[i].name)
-                salarysum2 += players[i].weeksalary;
-            else if (forward2 == players[i].name)
-                salarysum2 += players[i].weeksalary;
-            else if (forward3 == players[i].name)
-                salarysum2 += players[i].weeksalary;
-            else if (forward4 == players[i].name)
-                salarysum2 += players[i].weeksalary;
-            else if (forward5 == players[i].name)
-                salarysum2 += players[i].weeksalary;
-            else if (forward6 == players[i].name)
-                salarysum2 += players[i].weeksalary;
-            else if (forward7 == players[i].name)
-                salarysum2 += players[i].weeksalary;
-            else
-                continue;
-        }
+        salarysum2 += (forward1.weeksalary+forward2.weeksalary+forward3.weeksalary+forward4.weeksalary+forward5.weeksalary+forward6.weeksalary+forward7.weeksalary);
         qDebug()<<"salarysum2:"<<salarysum2;
 
         //如果选择的前锋数目超过7个，弹窗警告
@@ -3901,21 +7762,21 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->checkBox_43->setCheckState(Qt::Unchecked);
                 ui->checkBox_43->setChecked(false);
                 salarysum2 = 0;
-                forward1 = QString();
-                forward2 = QString();
-                forward3 = QString();
-                forward4 = QString();
-                forward5 = QString();
-                forward6 = QString();
-                forward7 = QString();
+                forward1.name = QString("");
+                forward2.name = QString("");
+                forward3.name = QString("");
+                forward4.name = QString("");
+                forward5.name = QString("");
+                forward6.name = QString("");
+                forward7.name = QString("");
                 qDebug()<<"salarysum2:"<<salarysum2;
-                qDebug()<<"forward1:"<<forward1;
-                qDebug()<<"forward2:"<<forward2;
-                qDebug()<<"forward3:"<<forward3;
-                qDebug()<<"forward4:"<<forward4;
-                qDebug()<<"forward5:"<<forward5;
-                qDebug()<<"forward6:"<<forward6;
-                qDebug()<<"forward7:"<<forward7;
+                qDebug()<<"forward1:"<<forward1.name;
+                qDebug()<<"forward2:"<<forward2.name;
+                qDebug()<<"forward3:"<<forward3.name;
+                qDebug()<<"forward4:"<<forward4.name;
+                qDebug()<<"forward5:"<<forward5.name;
+                qDebug()<<"forward6:"<<forward6.name;
+                qDebug()<<"forward7:"<<forward7.name;
             }
         }
 
@@ -3995,21 +7856,21 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->checkBox_43->setCheckState(Qt::Unchecked);
                 ui->checkBox_43->setChecked(false);
                 salarysum2 = 0;
-                forward1 = QString();
-                forward2 = QString();
-                forward3 = QString();
-                forward4 = QString();
-                forward5 = QString();
-                forward6 = QString();
-                forward7 = QString();
+                forward1.name = QString("");
+                forward2.name = QString("");
+                forward3.name = QString("");
+                forward4.name = QString("");
+                forward5.name = QString("");
+                forward6.name = QString("");
+                forward7.name = QString("");
                 qDebug()<<"salarysum2:"<<salarysum2;
-                qDebug()<<"forward1:"<<forward1;
-                qDebug()<<"forward2:"<<forward2;
-                qDebug()<<"forward3:"<<forward3;
-                qDebug()<<"forward4:"<<forward4;
-                qDebug()<<"forward5:"<<forward5;
-                qDebug()<<"forward6:"<<forward6;
-                qDebug()<<"forward7:"<<forward7;
+                qDebug()<<"forward1:"<<forward1.name;
+                qDebug()<<"forward2:"<<forward2.name;
+                qDebug()<<"forward3:"<<forward3.name;
+                qDebug()<<"forward4:"<<forward4.name;
+                qDebug()<<"forward5:"<<forward5.name;
+                qDebug()<<"forward6:"<<forward6.name;
+                qDebug()<<"forward7:"<<forward7.name;
             }
         }
 
@@ -4089,21 +7950,21 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->checkBox_43->setCheckState(Qt::Unchecked);
                 ui->checkBox_43->setChecked(false);
                 salarysum2 = 0;
-                forward1 = QString();
-                forward2 = QString();
-                forward3 = QString();
-                forward4 = QString();
-                forward5 = QString();
-                forward6 = QString();
-                forward7 = QString();
+                forward1.name = QString("");
+                forward2.name = QString("");
+                forward3.name = QString("");
+                forward4.name = QString("");
+                forward5.name = QString("");
+                forward6.name = QString("");
+                forward7.name = QString("");
                 qDebug()<<"salarysum2:"<<salarysum2;
-                qDebug()<<"forward1:"<<forward1;
-                qDebug()<<"forward2:"<<forward2;
-                qDebug()<<"forward3:"<<forward3;
-                qDebug()<<"forward4:"<<forward4;
-                qDebug()<<"forward5:"<<forward5;
-                qDebug()<<"forward6:"<<forward6;
-                qDebug()<<"forward7:"<<forward7;
+                qDebug()<<"forward1:"<<forward1.name;
+                qDebug()<<"forward2:"<<forward2.name;
+                qDebug()<<"forward3:"<<forward3.name;
+                qDebug()<<"forward4:"<<forward4.name;
+                qDebug()<<"forward5:"<<forward5.name;
+                qDebug()<<"forward6:"<<forward6.name;
+                qDebug()<<"forward7:"<<forward7.name;
             }
             //cancel后进入下一页面
             else if (check_1&&check_2)
@@ -4801,553 +8662,3783 @@ MainWindow::MainWindow(QWidget *parent) :
         if (ui->checkBox_44->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("格雷茨卡");
-            else if (midField2==QString())
-                midField2=QString("格雷茨卡");
-            else if(midField3==QString())
-                midField3=QString("格雷茨卡");
-            else if(midField4==QString())
-                midField4=QString("格雷茨卡");
-            else if(midField5==QString())
-                midField5=QString("格雷茨卡");
-            else if(midField6==QString())
-                midField6=QString("格雷茨卡");
-            else if(midField7==QString())
-                midField7=QString("格雷茨卡");
+            if(midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格雷茨卡"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格雷茨卡"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格雷茨卡"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格雷茨卡"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格雷茨卡"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格雷茨卡"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("格雷茨卡"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_45->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("若日尼奥");
-            else if (midField2==QString())
-                midField2=QString("若日尼奥");
-            else if(midField3==QString())
-                midField3=QString("若日尼奥");
-            else if(midField4==QString())
-                midField4=QString("若日尼奥");
-            else if(midField5==QString())
-                midField5=QString("若日尼奥");
-            else if(midField6==QString())
-                midField6=QString("若日尼奥");
-            else if(midField7==QString())
-                midField7=QString("若日尼奥");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("若日尼奥"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("若日尼奥"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("若日尼奥"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("若日尼奥"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("若日尼奥"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("若日尼奥"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("若日尼奥"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_46->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("科瓦契奇");
-            else if (midField2==QString())
-                midField2=QString("科瓦契奇");
-            else if(midField3==QString())
-                midField3=QString("科瓦契奇");
-            else if(midField4==QString())
-                midField4=QString("科瓦契奇");
-            else if(midField5==QString())
-                midField5=QString("科瓦契奇");
-            else if(midField6==QString())
-                midField6=QString("科瓦契奇");
-            else if(midField7==QString())
-                midField7=QString("科瓦契奇");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("科瓦契奇"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("科瓦契奇"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("科瓦契奇"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("科瓦契奇"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("科瓦契奇"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("科瓦契奇"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("科瓦契奇"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_47->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("齐耶赫");
-            else if (midField2==QString())
-                midField2=QString("齐耶赫");
-            else if(midField3==QString())
-                midField3=QString("齐耶赫");
-            else if(midField4==QString())
-                midField4=QString("齐耶赫");
-            else if(midField5==QString())
-                midField5=QString("齐耶赫");
-            else if(midField6==QString())
-                midField6=QString("齐耶赫");
-            else if(midField7==QString())
-                midField7=QString("齐耶赫");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("齐耶赫"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("齐耶赫"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("齐耶赫"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("齐耶赫"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("齐耶赫"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("齐耶赫"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("齐耶赫"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_48->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("普利西奇");
-            else if (midField2==QString())
-                midField2=QString("普利西奇");
-            else if(midField3==QString())
-                midField3=QString("普利西奇");
-            else if(midField4==QString())
-                midField4=QString("普利西奇");
-            else if(midField5==QString())
-                midField5=QString("普利西奇");
-            else if(midField6==QString())
-                midField6=QString("普利西奇");
-            else if(midField7==QString())
-                midField7=QString("普利西奇");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("普利西奇"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("普利西奇"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("普利西奇"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("普利西奇"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("普利西奇"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("普利西奇"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("普利西奇"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_49->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("芒特");
-            else if (midField2==QString())
-                midField2=QString("芒特");
-            else if(midField3==QString())
-                midField3=QString("芒特");
-            else if(midField4==QString())
-                midField4=QString("芒特");
-            else if(midField5==QString())
-                midField5=QString("芒特");
-            else if(midField6==QString())
-                midField6=QString("芒特");
-            else if(midField7==QString())
-                midField7=QString("芒特");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("芒特"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("芒特"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("芒特"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("芒特"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("芒特"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("芒特"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("芒特"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_50->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("德拉克斯勒");
-            else if (midField2==QString())
-                midField2=QString("德拉克斯勒");
-            else if(midField3==QString())
-                midField3=QString("德拉克斯勒");
-            else if(midField4==QString())
-                midField4=QString("德拉克斯勒");
-            else if(midField5==QString())
-                midField5=QString("德拉克斯勒");
-            else if(midField6==QString())
-                midField6=QString("德拉克斯勒");
-            else if(midField7==QString())
-                midField7=QString("德拉克斯勒");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德拉克斯勒"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德拉克斯勒"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德拉克斯勒"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德拉克斯勒"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德拉克斯勒"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德拉克斯勒"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德拉克斯勒"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_51->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("哈梅斯罗德里格斯");
-            else if (midField2==QString())
-                midField2=QString("哈梅斯罗德里格斯");
-            else if(midField3==QString())
-                midField3=QString("哈梅斯罗德里格斯");
-            else if(midField4==QString())
-                midField4=QString("哈梅斯罗德里格斯");
-            else if(midField5==QString())
-                midField5=QString("哈梅斯罗德里格斯");
-            else if(midField6==QString())
-                midField6=QString("哈梅斯罗德里格斯");
-            else if(midField7==QString())
-                midField7=QString("哈梅斯罗德里格斯");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈梅斯罗德里格斯"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈梅斯罗德里格斯"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈梅斯罗德里格斯"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈梅斯罗德里格斯"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈梅斯罗德里格斯"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈梅斯罗德里格斯"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈梅斯罗德里格斯"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_52->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("拉姆塞");
-            else if (midField2==QString())
-                midField2=QString("拉姆塞");
-            else if(midField3==QString())
-                midField3=QString("拉姆塞");
-            else if(midField4==QString())
-                midField4=QString("拉姆塞");
-            else if(midField5==QString())
-                midField5=QString("拉姆塞");
-            else if(midField6==QString())
-                midField6=QString("拉姆塞");
-            else if(midField7==QString())
-                midField7=QString("拉姆塞");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉姆塞"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉姆塞"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉姆塞"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉姆塞"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉姆塞"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉姆塞"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉姆塞"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_53->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("阿图尔");
-            else if (midField2==QString())
-                midField2=QString("阿图尔");
-            else if(midField3==QString())
-                midField3=QString("阿图尔");
-            else if(midField4==QString())
-                midField4=QString("阿图尔");
-            else if(midField5==QString())
-                midField5=QString("阿图尔");
-            else if(midField6==QString())
-                midField6=QString("阿图尔");
-            else if(midField7==QString())
-                midField7=QString("阿图尔");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿图尔"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿图尔"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿图尔"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿图尔"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿图尔"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿图尔"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿图尔"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_54->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("本坦库尔");
-            else if (midField2==QString())
-                midField2=QString("本坦库尔");
-            else if(midField3==QString())
-                midField3=QString("本坦库尔");
-            else if(midField4==QString())
-                midField4=QString("本坦库尔");
-            else if(midField5==QString())
-                midField5=QString("本坦库尔");
-            else if(midField6==QString())
-                midField6=QString("本坦库尔");
-            else if(midField7==QString())
-                midField7=QString("本坦库尔");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("本坦库尔"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("本坦库尔"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("本坦库尔"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("本坦库尔"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("本坦库尔"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("本坦库尔"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("本坦库尔"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_55->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("哈弗茨");
-            else if (midField2==QString())
-                midField2=QString("哈弗茨");
-            else if(midField3==QString())
-                midField3=QString("哈弗茨");
-            else if(midField4==QString())
-                midField4=QString("哈弗茨");
-            else if(midField5==QString())
-                midField5=QString("哈弗茨");
-            else if(midField6==QString())
-                midField6=QString("哈弗茨");
-            else if(midField7==QString())
-                midField7=QString("哈弗茨");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈弗茨"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈弗茨"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈弗茨"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈弗茨"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈弗茨"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈弗茨"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("哈弗茨"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_56->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("克罗斯");
-            else if (midField2==QString())
-                midField2=QString("克罗斯");
-            else if(midField3==QString())
-                midField3=QString("克罗斯");
-            else if(midField4==QString())
-                midField4=QString("克罗斯");
-            else if(midField5==QString())
-                midField5=QString("克罗斯");
-            else if(midField6==QString())
-                midField6=QString("克罗斯");
-            else if(midField7==QString())
-                midField7=QString("克罗斯");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("克罗斯"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("克罗斯"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("克罗斯"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("克罗斯"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("克罗斯"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("克罗斯"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("克罗斯"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_57->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("莫德里奇");
-            else if (midField2==QString())
-                midField2=QString("莫德里奇");
-            else if(midField3==QString())
-                midField3=QString("莫德里奇");
-            else if(midField4==QString())
-                midField4=QString("莫德里奇");
-            else if(midField5==QString())
-                midField5=QString("莫德里奇");
-            else if(midField6==QString())
-                midField6=QString("莫德里奇");
-            else if(midField7==QString())
-                midField7=QString("莫德里奇");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("莫德里奇"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("莫德里奇"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("莫德里奇"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("莫德里奇"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("莫德里奇"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("莫德里奇"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("莫德里奇"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_58->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("巴斯克斯");
-            else if (midField2==QString())
-                midField2=QString("巴斯克斯");
-            else if(midField3==QString())
-                midField3=QString("巴斯克斯");
-            else if(midField4==QString())
-                midField4=QString("巴斯克斯");
-            else if(midField5==QString())
-                midField5=QString("巴斯克斯");
-            else if(midField6==QString())
-                midField6=QString("巴斯克斯");
-            else if(midField7==QString())
-                midField7=QString("巴斯克斯");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴斯克斯"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴斯克斯"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴斯克斯"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴斯克斯"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴斯克斯"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴斯克斯"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴斯克斯"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_59->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("卡塞米罗");
-            else if (midField2==QString())
-                midField2=QString("卡塞米罗");
-            else if(midField3==QString())
-                midField3=QString("卡塞米罗");
-            else if(midField4==QString())
-                midField4=QString("卡塞米罗");
-            else if(midField5==QString())
-                midField5=QString("卡塞米罗");
-            else if(midField6==QString())
-                midField6=QString("卡塞米罗");
-            else if(midField7==QString())
-                midField7=QString("卡塞米罗");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡塞米罗"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡塞米罗"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡塞米罗"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡塞米罗"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡塞米罗"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡塞米罗"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡塞米罗"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_60->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("张伯伦");
-            else if (midField2==QString())
-                midField2=QString("张伯伦");
-            else if(midField3==QString())
-                midField3=QString("张伯伦");
-            else if(midField4==QString())
-                midField4=QString("张伯伦");
-            else if(midField5==QString())
-                midField5=QString("张伯伦");
-            else if(midField6==QString())
-                midField6=QString("张伯伦");
-            else if(midField7==QString())
-                midField7=QString("张伯伦");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("张伯伦"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("张伯伦"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("张伯伦"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("张伯伦"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("张伯伦"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("张伯伦"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("张伯伦"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_61->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("亨德森");
-            else if (midField2==QString())
-                midField2=QString("亨德森");
-            else if(midField3==QString())
-                midField3=QString("亨德森");
-            else if(midField4==QString())
-                midField4=QString("亨德森");
-            else if(midField5==QString())
-                midField5=QString("亨德森");
-            else if(midField6==QString())
-                midField6=QString("亨德森");
-            else if(midField7==QString())
-                midField7=QString("亨德森");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("亨德森"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("亨德森"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("亨德森"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("亨德森"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("亨德森"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("亨德森"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("亨德森"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_62->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("赖斯");
-            else if (midField2==QString())
-                midField2=QString("赖斯");
-            else if(midField3==QString())
-                midField3=QString("赖斯");
-            else if(midField4==QString())
-                midField4=QString("赖斯");
-            else if(midField5==QString())
-                midField5=QString("赖斯");
-            else if(midField6==QString())
-                midField6=QString("赖斯");
-            else if(midField7==QString())
-                midField7=QString("赖斯");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("赖斯"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("赖斯"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("赖斯"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("赖斯"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("赖斯"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("赖斯"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("赖斯"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_63->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("伯纳多席尔瓦");
-            else if (midField2==QString())
-                midField2=QString("伯纳多席尔瓦");
-            else if(midField3==QString())
-                midField3=QString("伯纳多席尔瓦");
-            else if(midField4==QString())
-                midField4=QString("伯纳多席尔瓦");
-            else if(midField5==QString())
-                midField5=QString("伯纳多席尔瓦");
-            else if(midField6==QString())
-                midField6=QString("伯纳多席尔瓦");
-            else if(midField7==QString())
-                midField7=QString("伯纳多席尔瓦");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伯纳多席尔瓦"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伯纳多席尔瓦"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伯纳多席尔瓦"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伯纳多席尔瓦"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伯纳多席尔瓦"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伯纳多席尔瓦"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("伯纳多席尔瓦"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_64->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("德布劳内");
-            else if (midField2==QString())
-                midField2=QString("德布劳内");
-            else if(midField3==QString())
-                midField3=QString("德布劳内");
-            else if(midField4==QString())
-                midField4=QString("德布劳内");
-            else if(midField5==QString())
-                midField5=QString("德布劳内");
-            else if(midField6==QString())
-                midField6=QString("德布劳内");
-            else if(midField7==QString())
-                midField7=QString("德布劳内");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德布劳内"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德布劳内"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德布劳内"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德布劳内"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德布劳内"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德布劳内"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德布劳内"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_65->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("福登");
-            else if (midField2==QString())
-                midField2=QString("福登");
-            else if(midField3==QString())
-                midField3=QString("福登");
-            else if(midField4==QString())
-                midField4=QString("福登");
-            else if(midField5==QString())
-                midField5=QString("福登");
-            else if(midField6==QString())
-                midField6=QString("福登");
-            else if(midField7==QString())
-                midField7=QString("福登");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("福登"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("福登"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("福登"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("福登"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("福登"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("福登"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("福登"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_66->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("库蒂尼奥");
-            else if (midField2==QString())
-                midField2=QString("库蒂尼奥");
-            else if(midField3==QString())
-                midField3=QString("库蒂尼奥");
-            else if(midField4==QString())
-                midField4=QString("库蒂尼奥");
-            else if(midField5==QString())
-                midField5=QString("库蒂尼奥");
-            else if(midField6==QString())
-                midField6=QString("库蒂尼奥");
-            else if(midField7==QString())
-                midField7=QString("库蒂尼奥");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("库蒂尼奥"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("库蒂尼奥"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("库蒂尼奥"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("库蒂尼奥"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("库蒂尼奥"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("库蒂尼奥"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("库蒂尼奥"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_67->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("德容");
-            else if (midField2==QString())
-                midField2=QString("德容");
-            else if(midField3==QString())
-                midField3=QString("德容");
-            else if(midField4==QString())
-                midField4=QString("德容");
-            else if(midField5==QString())
-                midField5=QString("德容");
-            else if(midField6==QString())
-                midField6=QString("德容");
-            else if(midField7==QString())
-                midField7=QString("德容");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德容"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德容"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德容"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德容"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德容"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德容"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德容"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_68->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("马丁内斯");
-            else if (midField2==QString())
-                midField2=QString("马丁内斯");
-            else if(midField3==QString())
-                midField3=QString("马丁内斯");
-            else if(midField4==QString())
-                midField4=QString("马丁内斯");
-            else if(midField5==QString())
-                midField5=QString("马丁内斯");
-            else if(midField6==QString())
-                midField6=QString("马丁内斯");
-            else if(midField7==QString())
-                midField7=QString("马丁内斯");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马丁内斯"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马丁内斯"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马丁内斯"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马丁内斯"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马丁内斯"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马丁内斯"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马丁内斯"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_69->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("托利索");
-            else if (midField2==QString())
-                midField2=QString("托利索");
-            else if(midField3==QString())
-                midField3=QString("托利索");
-            else if(midField4==QString())
-                midField4=QString("托利索");
-            else if(midField5==QString())
-                midField5=QString("托利索");
-            else if(midField6==QString())
-                midField6=QString("托利索");
-            else if(midField7==QString())
-                midField7=QString("托利索");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("托利索"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("托利索"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("托利索"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("托利索"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("托利索"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("托利索"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("托利索"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_70->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("桑乔");
-            else if (midField2==QString())
-                midField2=QString("桑乔");
-            else if(midField3==QString())
-                midField3=QString("桑乔");
-            else if(midField4==QString())
-                midField4=QString("桑乔");
-            else if(midField5==QString())
-                midField5=QString("桑乔");
-            else if(midField6==QString())
-                midField6=QString("桑乔");
-            else if(midField7==QString())
-                midField7=QString("桑乔");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑乔"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑乔"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑乔"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑乔"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑乔"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑乔"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("桑乔"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_71->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("维拉蒂");
-            else if (midField2==QString())
-                midField2=QString("维拉蒂");
-            else if(midField3==QString())
-                midField3=QString("维拉蒂");
-            else if(midField4==QString())
-                midField4=QString("维拉蒂");
-            else if(midField5==QString())
-                midField5=QString("维拉蒂");
-            else if(midField6==QString())
-                midField6=QString("维拉蒂");
-            else if(midField7==QString())
-                midField7=QString("维拉蒂");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("维拉蒂"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("维拉蒂"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("维拉蒂"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("维拉蒂"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("维拉蒂"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("维拉蒂"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("维拉蒂"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_72->isChecked())
         {
             ckBoxSum++;
-            if (midField1==QString())
-                midField1=QString("埃里克森");
-            else if (midField2==QString())
-                midField2=QString("埃里克森");
-            else if(midField3==QString())
-                midField3=QString("埃里克森");
-            else if(midField4==QString())
-                midField4=QString("埃里克森");
-            else if(midField5==QString())
-                midField5=QString("埃里克森");
-            else if(midField6==QString())
-                midField6=QString("埃里克森");
-            else if(midField7==QString())
-                midField7=QString("埃里克森");
+            if (midField1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃里克森"))
+                    {
+                        midField1.name = players[i].name;
+                        midField1.age = players[i].age;
+                        midField1.rating = players[i].rating;
+                        midField1.position = players[i].position;
+                        midField1.weeksalary = players[i].weeksalary;
+                        midField1.is_p = players[i].is_p;
+                        midField1.transferfee = players[i].transferfee;
+                        midField1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃里克森"))
+                    {
+                        midField2.name = players[i].name;
+                        midField2.age = players[i].age;
+                        midField2.rating = players[i].rating;
+                        midField2.position = players[i].position;
+                        midField2.weeksalary = players[i].weeksalary;
+                        midField2.is_p = players[i].is_p;
+                        midField2.transferfee = players[i].transferfee;
+                        midField2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃里克森"))
+                    {
+                        midField3.name = players[i].name;
+                        midField3.age = players[i].age;
+                        midField3.rating = players[i].rating;
+                        midField3.position = players[i].position;
+                        midField3.weeksalary = players[i].weeksalary;
+                        midField3.is_p = players[i].is_p;
+                        midField3.transferfee = players[i].transferfee;
+                        midField3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃里克森"))
+                    {
+                        midField4.name = players[i].name;
+                        midField4.age = players[i].age;
+                        midField4.rating = players[i].rating;
+                        midField4.position = players[i].position;
+                        midField4.weeksalary = players[i].weeksalary;
+                        midField4.is_p = players[i].is_p;
+                        midField4.transferfee = players[i].transferfee;
+                        midField4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃里克森"))
+                    {
+                        midField5.name = players[i].name;
+                        midField5.age = players[i].age;
+                        midField5.rating = players[i].rating;
+                        midField5.position = players[i].position;
+                        midField5.weeksalary = players[i].weeksalary;
+                        midField5.is_p = players[i].is_p;
+                        midField5.transferfee = players[i].transferfee;
+                        midField5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃里克森"))
+                    {
+                        midField6.name = players[i].name;
+                        midField6.age = players[i].age;
+                        midField6.rating = players[i].rating;
+                        midField6.position = players[i].position;
+                        midField6.weeksalary = players[i].weeksalary;
+                        midField6.is_p = players[i].is_p;
+                        midField6.transferfee = players[i].transferfee;
+                        midField6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (midField7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃里克森"))
+                    {
+                        midField7.name = players[i].name;
+                        midField7.age = players[i].age;
+                        midField7.rating = players[i].rating;
+                        midField7.position = players[i].position;
+                        midField7.weeksalary = players[i].weeksalary;
+                        midField7.is_p = players[i].is_p;
+                        midField7.transferfee = players[i].transferfee;
+                        midField7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
-        qDebug()<<"midField1:"<<midField1;
-        qDebug()<<"midField2:"<<midField2;
-        qDebug()<<"midField3:"<<midField3;
-        qDebug()<<"midField4:"<<midField4;
-        qDebug()<<"midField5:"<<midField5;
-        qDebug()<<"midField6:"<<midField6;
-        qDebug()<<"midField7:"<<midField7;
+        qDebug()<<"midField1:"<<midField1.name;
+        qDebug()<<"midField2:"<<midField2.name;
+        qDebug()<<"midField3:"<<midField3.name;
+        qDebug()<<"midField4:"<<midField4.name;
+        qDebug()<<"midField5:"<<midField5.name;
+        qDebug()<<"midField6:"<<midField6.name;
+        qDebug()<<"midField7:"<<midField7.name;
         qDebug()<<"ckBoxSum:"<<ckBoxSum;
         salarysum3 = 0;
-        for (int i=0;i<100;i++)
-        {
-            if (midField1 == players[i].name)
-                salarysum3 += players[i].weeksalary;
-            else if (midField2 == players[i].name)
-                salarysum3 += players[i].weeksalary;
-            else if (midField3 == players[i].name)
-                salarysum3 += players[i].weeksalary;
-            else if (midField4 == players[i].name)
-                salarysum3 += players[i].weeksalary;
-            else if (midField5 == players[i].name)
-                salarysum3 += players[i].weeksalary;
-            else if (midField6 == players[i].name)
-                salarysum3 += players[i].weeksalary;
-            else if (midField7 == players[i].name)
-                salarysum3 += players[i].weeksalary;
-            else
-                continue;
-        }
+        salarysum3 += (midField1.weeksalary+midField2.weeksalary+midField3.weeksalary+midField4.weeksalary+midField5.weeksalary+midField6.weeksalary+midField7.weeksalary);
         qDebug()<<"salarysum3:"<<salarysum3;
 
         //如果选择的中场数目超过7个，弹窗警告
@@ -5416,20 +12507,20 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->checkBox_72->setCheckState(Qt::Unchecked);
                 ui->checkBox_72->setChecked(false);
                 salarysum3 = 0;
-                midField1 = QString();
-                midField2 = QString();
-                midField3 = QString();
-                midField4 = QString();
-                midField5 = QString();
-                midField6 = QString();
-                midField7 = QString();
-                qDebug()<<"midField1:"<<midField1;
-                qDebug()<<"midField2:"<<midField2;
-                qDebug()<<"midField3:"<<midField3;
-                qDebug()<<"midField4:"<<midField4;
-                qDebug()<<"midField5:"<<midField5;
-                qDebug()<<"midField6:"<<midField6;
-                qDebug()<<"midField7:"<<midField7;
+                midField1.name = QString("");
+                midField2.name = QString("");
+                midField3.name = QString("");
+                midField4.name = QString("");
+                midField5.name = QString("");
+                midField6.name = QString("");
+                midField7.name = QString("");
+                qDebug()<<"midField1:"<<midField1.name;
+                qDebug()<<"midField2:"<<midField2.name;
+                qDebug()<<"midField3:"<<midField3.name;
+                qDebug()<<"midField4:"<<midField4.name;
+                qDebug()<<"midField5:"<<midField5.name;
+                qDebug()<<"midField6:"<<midField6.name;
+                qDebug()<<"midField7:"<<midField7.name;
                 qDebug()<<"salarysum3:"<<salarysum3;
             }
         }
@@ -5500,20 +12591,20 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->checkBox_72->setCheckState(Qt::Unchecked);
                 ui->checkBox_72->setChecked(false);
                 salarysum3 = 0;
-                midField1 = QString();
-                midField2 = QString();
-                midField3 = QString();
-                midField4 = QString();
-                midField5 = QString();
-                midField6 = QString();
-                midField7 = QString();
-                qDebug()<<"midField1:"<<midField1;
-                qDebug()<<"midField2:"<<midField2;
-                qDebug()<<"midField3:"<<midField3;
-                qDebug()<<"midField4:"<<midField4;
-                qDebug()<<"midField5:"<<midField5;
-                qDebug()<<"midField6:"<<midField6;
-                qDebug()<<"midField7:"<<midField7;
+                midField1.name = QString("");
+                midField2.name = QString("");
+                midField3.name = QString("");
+                midField4.name = QString("");
+                midField5.name = QString("");
+                midField6.name = QString("");
+                midField7.name = QString("");
+                qDebug()<<"midField1:"<<midField1.name;
+                qDebug()<<"midField2:"<<midField2.name;
+                qDebug()<<"midField3:"<<midField3.name;
+                qDebug()<<"midField4:"<<midField4.name;
+                qDebug()<<"midField5:"<<midField5.name;
+                qDebug()<<"midField6:"<<midField6.name;
+                qDebug()<<"midField7:"<<midField7.name;
                 qDebug()<<"salarysum3:"<<salarysum3;
             }
         }
@@ -5584,20 +12675,20 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->checkBox_72->setCheckState(Qt::Unchecked);
                 ui->checkBox_72->setChecked(false);
                 salarysum3 = 0;
-                midField1 = QString();
-                midField2 = QString();
-                midField3 = QString();
-                midField4 = QString();
-                midField5 = QString();
-                midField6 = QString();
-                midField7 = QString();
-                qDebug()<<"midField1:"<<midField1;
-                qDebug()<<"midField2:"<<midField2;
-                qDebug()<<"midField3:"<<midField3;
-                qDebug()<<"midField4:"<<midField4;
-                qDebug()<<"midField5:"<<midField5;
-                qDebug()<<"midField6:"<<midField6;
-                qDebug()<<"midField7:"<<midField7;
+                midField1.name = QString("");
+                midField2.name = QString("");
+                midField3.name = QString("");
+                midField4.name = QString("");
+                midField5.name = QString("");
+                midField6.name = QString("");
+                midField7.name = QString("");
+                qDebug()<<"midField1:"<<midField1.name;
+                qDebug()<<"midField2:"<<midField2.name;
+                qDebug()<<"midField3:"<<midField3.name;
+                qDebug()<<"midField4:"<<midField4.name;
+                qDebug()<<"midField5:"<<midField5.name;
+                qDebug()<<"midField6:"<<midField6.name;
+                qDebug()<<"midField7:"<<midField7.name;
                 qDebug()<<"salarysum3:"<<salarysum3;
             }
             //cancel后进入下一页面
@@ -6275,535 +13366,3653 @@ MainWindow::MainWindow(QWidget *parent) :
         if (ui->checkBox_73->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("埃尔南德斯");
-            else if (back2==QString())
-                back2=QString("埃尔南德斯");
-            else if(back3==QString())
-                back3=QString("埃尔南德斯");
-            else if(back4==QString())
-                back4=QString("埃尔南德斯");
-            else if(back5==QString())
-                back5=QString("埃尔南德斯");
-            else if(back6==QString())
-                back6=QString("埃尔南德斯");
-            else if(back7==QString())
-                back7=QString("埃尔南德斯");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃尔南德斯"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃尔南德斯"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃尔南德斯"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃尔南德斯"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃尔南德斯"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃尔南德斯"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("埃尔南德斯"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_74->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("基米希");
-            else if (back2==QString())
-                back2=QString("基米希");
-            else if(back3==QString())
-                back3=QString("基米希");
-            else if(back4==QString())
-                back4=QString("基米希");
-            else if(back5==QString())
-                back5=QString("基米希");
-            else if(back6==QString())
-                back6=QString("基米希");
-            else if(back7==QString())
-                back7=QString("基米希");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("基米希"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("基米希"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("基米希"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("基米希"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("基米希"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("基米希"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("基米希"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_75->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("阿斯皮利奎塔");
-            else if (back2==QString())
-                back2=QString("阿斯皮利奎塔");
-            else if(back3==QString())
-                back3=QString("阿斯皮利奎塔");
-            else if(back4==QString())
-                back4=QString("阿斯皮利奎塔");
-            else if(back5==QString())
-                back5=QString("阿斯皮利奎塔");
-            else if(back6==QString())
-                back6=QString("阿斯皮利奎塔");
-            else if(back7==QString())
-                back7=QString("阿斯皮利奎塔");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿斯皮利奎塔"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿斯皮利奎塔"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿斯皮利奎塔"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿斯皮利奎塔"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿斯皮利奎塔"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿斯皮利奎塔"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿斯皮利奎塔"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_76->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("奇尔韦尔");
-            else if (back2==QString())
-                back2=QString("奇尔韦尔");
-            else if(back3==QString())
-                back3=QString("奇尔韦尔");
-            else if(back4==QString())
-                back4=QString("奇尔韦尔");
-            else if(back5==QString())
-                back5=QString("奇尔韦尔");
-            else if(back6==QString())
-                back6=QString("奇尔韦尔");
-            else if(back7==QString())
-                back7=QString("奇尔韦尔");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("奇尔韦尔"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("奇尔韦尔"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("奇尔韦尔"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("奇尔韦尔"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("奇尔韦尔"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("奇尔韦尔"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("奇尔韦尔"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_77->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("金彭贝");
-            else if (back2==QString())
-                back2=QString("金彭贝");
-            else if(back3==QString())
-                back3=QString("金彭贝");
-            else if(back4==QString())
-                back4=QString("金彭贝");
-            else if(back5==QString())
-                back5=QString("金彭贝");
-            else if(back6==QString())
-                back6=QString("金彭贝");
-            else if(back7==QString())
-                back7=QString("金彭贝");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("金彭贝"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("金彭贝"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("金彭贝"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("金彭贝"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("金彭贝"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("金彭贝"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("金彭贝"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_78->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("马塞洛");
-            else if (back2==QString())
-                back2=QString("马塞洛");
-            else if(back3==QString())
-                back3=QString("马塞洛");
-            else if(back4==QString())
-                back4=QString("马塞洛");
-            else if(back5==QString())
-                back5=QString("马塞洛");
-            else if(back6==QString())
-                back6=QString("马塞洛");
-            else if(back7==QString())
-                back7=QString("马塞洛");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马塞洛"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马塞洛"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马塞洛"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马塞洛"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马塞洛"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马塞洛"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马塞洛"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_79->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("拉莫斯");
-            else if (back2==QString())
-                back2=QString("拉莫斯");
-            else if(back3==QString())
-                back3=QString("拉莫斯");
-            else if(back4==QString())
-                back4=QString("拉莫斯");
-            else if(back5==QString())
-                back5=QString("拉莫斯");
-            else if(back6==QString())
-                back6=QString("拉莫斯");
-            else if(back7==QString())
-                back7=QString("拉莫斯");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉莫斯"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉莫斯"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉莫斯"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉莫斯"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉莫斯"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉莫斯"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("拉莫斯"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_80->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("瓦拉内");
-            else if (back2==QString())
-                back2=QString("瓦拉内");
-            else if(back3==QString())
-                back3=QString("瓦拉内");
-            else if(back4==QString())
-                back4=QString("瓦拉内");
-            else if(back5==QString())
-                back5=QString("瓦拉内");
-            else if(back6==QString())
-                back6=QString("瓦拉内");
-            else if(back7==QString())
-                back7=QString("瓦拉内");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("瓦拉内"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("瓦拉内"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("瓦拉内"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("瓦拉内"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("瓦拉内"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("瓦拉内"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("瓦拉内"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_81->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("卡瓦哈尔");
-            else if (back2==QString())
-                back2=QString("卡瓦哈尔");
-            else if(back3==QString())
-                back3=QString("卡瓦哈尔");
-            else if(back4==QString())
-                back4=QString("卡瓦哈尔");
-            else if(back5==QString())
-                back5=QString("卡瓦哈尔");
-            else if(back6==QString())
-                back6=QString("卡瓦哈尔");
-            else if(back7==QString())
-                back7=QString("卡瓦哈尔");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡瓦哈尔"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡瓦哈尔"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡瓦哈尔"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡瓦哈尔"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡瓦哈尔"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡瓦哈尔"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("卡瓦哈尔"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_82->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("德西利奥");
-            else if (back2==QString())
-                back2=QString("德西利奥");
-            else if(back3==QString())
-                back3=QString("德西利奥");
-            else if(back4==QString())
-                back4=QString("德西利奥");
-            else if(back5==QString())
-                back5=QString("德西利奥");
-            else if(back6==QString())
-                back6=QString("德西利奥");
-            else if(back7==QString())
-                back7=QString("德西利奥");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德西利奥"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德西利奥"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德西利奥"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德西利奥"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德西利奥"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德西利奥"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德西利奥"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_83->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("德里赫特");
-            else if (back2==QString())
-                back2=QString("德里赫特");
-            else if(back3==QString())
-                back3=QString("德里赫特");
-            else if(back4==QString())
-                back4=QString("德里赫特");
-            else if(back5==QString())
-                back5=QString("德里赫特");
-            else if(back6==QString())
-                back6=QString("德里赫特");
-            else if(back7==QString())
-                back7=QString("德里赫特");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德里赫特"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德里赫特"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德里赫特"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德里赫特"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德里赫特"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德里赫特"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("德里赫特"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_84->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("巴尔特拉");
-            else if (back2==QString())
-                back2=QString("巴尔特拉");
-            else if(back3==QString())
-                back3=QString("巴尔特拉");
-            else if(back4==QString())
-                back4=QString("巴尔特拉");
-            else if(back5==QString())
-                back5=QString("巴尔特拉");
-            else if(back6==QString())
-                back6=QString("巴尔特拉");
-            else if(back7==QString())
-                back7=QString("巴尔特拉");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴尔特拉"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴尔特拉"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴尔特拉"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴尔特拉"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴尔特拉"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴尔特拉"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("巴尔特拉"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_85->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("阿诺德");
-            else if (back2==QString())
-                back2=QString("阿诺德");
-            else if(back3==QString())
-                back3=QString("阿诺德");
-            else if(back4==QString())
-                back4=QString("阿诺德");
-            else if(back5==QString())
-                back5=QString("阿诺德");
-            else if(back6==QString())
-                back6=QString("阿诺德");
-            else if(back7==QString())
-                back7=QString("阿诺德");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿诺德"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿诺德"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿诺德"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿诺德"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿诺德"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿诺德"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿诺德"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_86->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("范戴克");
-            else if (back2==QString())
-                back2=QString("范戴克");
-            else if(back3==QString())
-                back3=QString("范戴克");
-            else if(back4==QString())
-                back4=QString("范戴克");
-            else if(back5==QString())
-                back5=QString("范戴克");
-            else if(back6==QString())
-                back6=QString("范戴克");
-            else if(back7==QString())
-                back7=QString("范戴克");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("范戴克"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("范戴克"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("范戴克"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("范戴克"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("范戴克"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("范戴克"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("范戴克"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_87->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("罗伯逊");
-            else if (back2==QString())
-                back2=QString("罗伯逊");
-            else if(back3==QString())
-                back3=QString("罗伯逊");
-            else if(back4==QString())
-                back4=QString("罗伯逊");
-            else if(back5==QString())
-                back5=QString("罗伯逊");
-            else if(back6==QString())
-                back6=QString("罗伯逊");
-            else if(back7==QString())
-                back7=QString("罗伯逊");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伯逊"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伯逊"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伯逊"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伯逊"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伯逊"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伯逊"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗伯逊"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_88->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("马蒂普");
-            else if (back2==QString())
-                back2=QString("马蒂普");
-            else if(back3==QString())
-                back3=QString("马蒂普");
-            else if(back4==QString())
-                back4=QString("马蒂普");
-            else if(back5==QString())
-                back5=QString("马蒂普");
-            else if(back6==QString())
-                back6=QString("马蒂普");
-            else if(back7==QString())
-                back7=QString("马蒂普");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马蒂普"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马蒂普"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马蒂普"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马蒂普"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马蒂普"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马蒂普"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马蒂普"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_89->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("门迪");
-            else if (back2==QString())
-                back2=QString("门迪");
-            else if(back3==QString())
-                back3=QString("门迪");
-            else if(back4==QString())
-                back4=QString("门迪");
-            else if(back5==QString())
-                back5=QString("门迪");
-            else if(back6==QString())
-                back6=QString("门迪");
-            else if(back7==QString())
-                back7=QString("门迪");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("门迪"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("门迪"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("门迪"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("门迪"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("门迪"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("门迪"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("门迪"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_90->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("斯通斯");
-            else if (back2==QString())
-                back2=QString("斯通斯");
-            else if(back3==QString())
-                back3=QString("斯通斯");
-            else if(back4==QString())
-                back4=QString("斯通斯");
-            else if(back5==QString())
-                back5=QString("斯通斯");
-            else if(back6==QString())
-                back6=QString("斯通斯");
-            else if(back7==QString())
-                back7=QString("斯通斯");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯通斯"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯通斯"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯通斯"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯通斯"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯通斯"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯通斯"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("斯通斯"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_91->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("罗贝托");
-            else if (back2==QString())
-                back2=QString("罗贝托");
-            else if(back3==QString())
-                back3=QString("罗贝托");
-            else if(back4==QString())
-                back4=QString("罗贝托");
-            else if(back5==QString())
-                back5=QString("罗贝托");
-            else if(back6==QString())
-                back6=QString("罗贝托");
-            else if(back7==QString())
-                back7=QString("罗贝托");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗贝托"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗贝托"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗贝托"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗贝托"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗贝托"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗贝托"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("罗贝托"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_92->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("皮克");
-            else if (back2==QString())
-                back2=QString("皮克");
-            else if(back3==QString())
-                back3=QString("皮克");
-            else if(back4==QString())
-                back4=QString("皮克");
-            else if(back5==QString())
-                back5=QString("皮克");
-            else if(back6==QString())
-                back6=QString("皮克");
-            else if(back7==QString())
-                back7=QString("皮克");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("皮克"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("皮克"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("皮克"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("皮克"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("皮克"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("皮克"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("皮克"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_93->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("阿拉巴");
-            else if (back2==QString())
-                back2=QString("阿拉巴");
-            else if(back3==QString())
-                back3=QString("阿拉巴");
-            else if(back4==QString())
-                back4=QString("阿拉巴");
-            else if(back5==QString())
-                back5=QString("阿拉巴");
-            else if(back6==QString())
-                back6=QString("阿拉巴");
-            else if(back7==QString())
-                back7=QString("阿拉巴");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿拉巴"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿拉巴"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿拉巴"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿拉巴"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿拉巴"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿拉巴"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿拉巴"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_94->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("帕瓦尔");
-            else if (back2==QString())
-                back2=QString("帕瓦尔");
-            else if(back3==QString())
-                back3=QString("帕瓦尔");
-            else if(back4==QString())
-                back4=QString("帕瓦尔");
-            else if(back5==QString())
-                back5=QString("帕瓦尔");
-            else if(back6==QString())
-                back6=QString("帕瓦尔");
-            else if(back7==QString())
-                back7=QString("帕瓦尔");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("帕瓦尔"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("帕瓦尔"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("帕瓦尔"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("帕瓦尔"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("帕瓦尔"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("帕瓦尔"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("帕瓦尔"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_95->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("阿方索戴维斯");
-            else if (back2==QString())
-                back2=QString("阿方索戴维斯");
-            else if(back3==QString())
-                back3=QString("阿方索戴维斯");
-            else if(back4==QString())
-                back4=QString("阿方索戴维斯");
-            else if(back5==QString())
-                back5=QString("阿方索戴维斯");
-            else if(back6==QString())
-                back6=QString("阿方索戴维斯");
-            else if(back7==QString())
-                back7=QString("阿方索戴维斯");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿方索戴维斯"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿方索戴维斯"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿方索戴维斯"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿方索戴维斯"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿方索戴维斯"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿方索戴维斯"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("阿方索戴维斯"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_96->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("胡梅尔斯");
-            else if (back2==QString())
-                back2=QString("胡梅尔斯");
-            else if(back3==QString())
-                back3=QString("胡梅尔斯");
-            else if(back4==QString())
-                back4=QString("胡梅尔斯");
-            else if(back5==QString())
-                back5=QString("胡梅尔斯");
-            else if(back6==QString())
-                back6=QString("胡梅尔斯");
-            else if(back7==QString())
-                back7=QString("胡梅尔斯");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("胡梅尔斯"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("胡梅尔斯"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("胡梅尔斯"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("胡梅尔斯"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("胡梅尔斯"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("胡梅尔斯"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("胡梅尔斯"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_97->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("默尼耶");
-            else if (back2==QString())
-                back2=QString("默尼耶");
-            else if(back3==QString())
-                back3=QString("默尼耶");
-            else if(back4==QString())
-                back4=QString("默尼耶");
-            else if(back5==QString())
-                back5=QString("默尼耶");
-            else if(back6==QString())
-                back6=QString("默尼耶");
-            else if(back7==QString())
-                back7=QString("默尼耶");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("默尼耶"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("默尼耶"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("默尼耶"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("默尼耶"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("默尼耶"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("默尼耶"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("默尼耶"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_98->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("马尔基尼奥斯");
-            else if (back2==QString())
-                back2=QString("马尔基尼奥斯");
-            else if(back3==QString())
-                back3=QString("马尔基尼奥斯");
-            else if(back4==QString())
-                back4=QString("马尔基尼奥斯");
-            else if(back5==QString())
-                back5=QString("马尔基尼奥斯");
-            else if(back6==QString())
-                back6=QString("马尔基尼奥斯");
-            else if(back7==QString())
-                back7=QString("马尔基尼奥斯");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马尔基尼奥斯"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马尔基尼奥斯"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马尔基尼奥斯"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马尔基尼奥斯"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马尔基尼奥斯"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马尔基尼奥斯"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("马尔基尼奥斯"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_99->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("博努奇");
-            else if (back2==QString())
-                back2=QString("博努奇");
-            else if(back3==QString())
-                back3=QString("博努奇");
-            else if(back4==QString())
-                back4=QString("博努奇");
-            else if(back5==QString())
-                back5=QString("博努奇");
-            else if(back6==QString())
-                back6=QString("博努奇");
-            else if(back7==QString())
-                back7=QString("博努奇");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("博努奇"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("博努奇"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("博努奇"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("博努奇"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("博努奇"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("博努奇"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("博努奇"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
         if (ui->checkBox_100->isChecked())
         {
             ckBoxSum++;
-            if (back1==QString())
-                back1=QString("戈丁");
-            else if (back2==QString())
-                back2=QString("戈丁");
-            else if(back3==QString())
-                back3=QString("戈丁");
-            else if(back4==QString())
-                back4=QString("戈丁");
-            else if(back5==QString())
-                back5=QString("戈丁");
-            else if(back6==QString())
-                back6=QString("戈丁");
-            else if(back7==QString())
-                back7=QString("戈丁");
+            if (back1.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("戈丁"))
+                    {
+                        back1.name = players[i].name;
+                        back1.age = players[i].age;
+                        back1.rating = players[i].rating;
+                        back1.position = players[i].position;
+                        back1.weeksalary = players[i].weeksalary;
+                        back1.is_p = players[i].is_p;
+                        back1.transferfee = players[i].transferfee;
+                        back1.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back2.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("戈丁"))
+                    {
+                        back2.name = players[i].name;
+                        back2.age = players[i].age;
+                        back2.rating = players[i].rating;
+                        back2.position = players[i].position;
+                        back2.weeksalary = players[i].weeksalary;
+                        back2.is_p = players[i].is_p;
+                        back2.transferfee = players[i].transferfee;
+                        back2.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back3.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("戈丁"))
+                    {
+                        back3.name = players[i].name;
+                        back3.age = players[i].age;
+                        back3.rating = players[i].rating;
+                        back3.position = players[i].position;
+                        back3.weeksalary = players[i].weeksalary;
+                        back3.is_p = players[i].is_p;
+                        back3.transferfee = players[i].transferfee;
+                        back3.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back4.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("戈丁"))
+                    {
+                        back4.name = players[i].name;
+                        back4.age = players[i].age;
+                        back4.rating = players[i].rating;
+                        back4.position = players[i].position;
+                        back4.weeksalary = players[i].weeksalary;
+                        back4.is_p = players[i].is_p;
+                        back4.transferfee = players[i].transferfee;
+                        back4.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back5.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("戈丁"))
+                    {
+                        back5.name = players[i].name;
+                        back5.age = players[i].age;
+                        back5.rating = players[i].rating;
+                        back5.position = players[i].position;
+                        back5.weeksalary = players[i].weeksalary;
+                        back5.is_p = players[i].is_p;
+                        back5.transferfee = players[i].transferfee;
+                        back5.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back6.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("戈丁"))
+                    {
+                        back6.name = players[i].name;
+                        back6.age = players[i].age;
+                        back6.rating = players[i].rating;
+                        back6.position = players[i].position;
+                        back6.weeksalary = players[i].weeksalary;
+                        back6.is_p = players[i].is_p;
+                        back6.transferfee = players[i].transferfee;
+                        back6.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
+            else if (back7.name == QString(""))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (players[i].name == QString("戈丁"))
+                    {
+                        back7.name = players[i].name;
+                        back7.age = players[i].age;
+                        back7.rating = players[i].rating;
+                        back7.position = players[i].position;
+                        back7.weeksalary = players[i].weeksalary;
+                        back7.is_p = players[i].is_p;
+                        back7.transferfee = players[i].transferfee;
+                        back7.hurt = players[i].hurt;
+                        break;
+                    }
+                }
+            }
         }
-        qDebug()<<"back1:"<<back1;
-        qDebug()<<"back2:"<<back2;
-        qDebug()<<"back3:"<<back3;
-        qDebug()<<"back4:"<<back4;
-        qDebug()<<"back5:"<<back5;
-        qDebug()<<"back6:"<<back6;
-        qDebug()<<"back7:"<<back7;
+        qDebug()<<"back1:"<<back1.name;
+        qDebug()<<"back2:"<<back2.name;
+        qDebug()<<"back3:"<<back3.name;
+        qDebug()<<"back4:"<<back4.name;
+        qDebug()<<"back5:"<<back5.name;
+        qDebug()<<"back6:"<<back6.name;
+        qDebug()<<"back7:"<<back7.name;
         qDebug()<<"ckBoxSum:"<<ckBoxSum;
         salarysum4 = 0;
-        for (int i=0;i<100;i++)
-        {
-            if (back1 == players[i].name)
-                salarysum4 += players[i].weeksalary;
-            else if (back2 == players[i].name)
-                salarysum4 += players[i].weeksalary;
-            else if (back3 == players[i].name)
-                salarysum4 += players[i].weeksalary;
-            else if (back4 == players[i].name)
-                salarysum4 += players[i].weeksalary;
-            else if (back5 == players[i].name)
-                salarysum4 += players[i].weeksalary;
-            else if (back6 == players[i].name)
-                salarysum4 += players[i].weeksalary;
-            else if (back7 == players[i].name)
-                salarysum4 += players[i].weeksalary;
-            else
-                continue;
-        }
+        salarysum4 += (back1.weeksalary+back2.weeksalary+back3.weeksalary+back4.weeksalary+back5.weeksalary+back6.weeksalary+back7.weeksalary);
         qDebug()<<"salarysum4:"<<salarysum4;
 
         //如果选择的后卫数目超过7个，弹窗警告
@@ -6870,20 +17079,20 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->checkBox_100->setCheckState(Qt::Unchecked);
                 ui->checkBox_100->setChecked(false);
                 salarysum4 = 0;
-                back1 = QString();
-                back2 = QString();
-                back3 = QString();
-                back4 = QString();
-                back5 = QString();
-                back6 = QString();
-                back7 = QString();
-                qDebug()<<"back1:"<<back1;
-                qDebug()<<"back2:"<<back2;
-                qDebug()<<"back3:"<<back3;
-                qDebug()<<"back4:"<<back4;
-                qDebug()<<"back5:"<<back5;
-                qDebug()<<"back6:"<<back6;
-                qDebug()<<"back7:"<<back7;
+                back1.name = QString("");
+                back2.name = QString("");
+                back3.name = QString("");
+                back4.name = QString("");
+                back5.name = QString("");
+                back6.name = QString("");
+                back7.name = QString("");
+                qDebug()<<"back1:"<<back1.name;
+                qDebug()<<"back2:"<<back2.name;
+                qDebug()<<"back3:"<<back3.name;
+                qDebug()<<"back4:"<<back4.name;
+                qDebug()<<"back5:"<<back5.name;
+                qDebug()<<"back6:"<<back6.name;
+                qDebug()<<"back7:"<<back7.name;
                 qDebug()<<"salarysum4:"<<salarysum4;
             }
         }
@@ -6952,20 +17161,20 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->checkBox_100->setCheckState(Qt::Unchecked);
                 ui->checkBox_100->setChecked(false);
                 salarysum4 = 0;
-                back1 = QString();
-                back2 = QString();
-                back3 = QString();
-                back4 = QString();
-                back5 = QString();
-                back6 = QString();
-                back7 = QString();
-                qDebug()<<"back1:"<<back1;
-                qDebug()<<"back2:"<<back2;
-                qDebug()<<"back3:"<<back3;
-                qDebug()<<"back4:"<<back4;
-                qDebug()<<"back5:"<<back5;
-                qDebug()<<"back6:"<<back6;
-                qDebug()<<"back7:"<<back7;
+                back1.name = QString("");
+                back2.name = QString("");
+                back3.name = QString("");
+                back4.name = QString("");
+                back5.name = QString("");
+                back6.name = QString("");
+                back7.name = QString("");
+                qDebug()<<"back1:"<<back1.name;
+                qDebug()<<"back2:"<<back2.name;
+                qDebug()<<"back3:"<<back3.name;
+                qDebug()<<"back4:"<<back4.name;
+                qDebug()<<"back5:"<<back5.name;
+                qDebug()<<"back6:"<<back6.name;
+                qDebug()<<"back7:"<<back7.name;
                 qDebug()<<"salarysum4:"<<salarysum4;
             }
         }
@@ -7036,20 +17245,20 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->checkBox_100->setCheckState(Qt::Unchecked);
                 ui->checkBox_100->setChecked(false);
                 salarysum4 = 0;
-                back1 = QString();
-                back2 = QString();
-                back3 = QString();
-                back4 = QString();
-                back5 = QString();
-                back6 = QString();
-                back7 = QString();
-                qDebug()<<"back1:"<<back1;
-                qDebug()<<"back2:"<<back2;
-                qDebug()<<"back3:"<<back3;
-                qDebug()<<"back4:"<<back4;
-                qDebug()<<"back5:"<<back5;
-                qDebug()<<"back6:"<<back6;
-                qDebug()<<"back7:"<<back7;
+                back1.name = QString("");
+                back2.name = QString("");
+                back3.name = QString("");
+                back4.name = QString("");
+                back5.name = QString("");
+                back6.name = QString("");
+                back7.name = QString("");
+                qDebug()<<"back1:"<<back1.name;
+                qDebug()<<"back2:"<<back2.name;
+                qDebug()<<"back3:"<<back3.name;
+                qDebug()<<"back4:"<<back4.name;
+                qDebug()<<"back5:"<<back5.name;
+                qDebug()<<"back6:"<<back6.name;
+                qDebug()<<"back7:"<<back7.name;
                 qDebug()<<"salarysum4:"<<salarysum4;
             }
         }
@@ -7063,60 +17272,31 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->stackedWidget->setCurrentIndex(7);
     });
 
-    //存储球员信息的QVector  不能用
-    {
-        QVector<QString>playerVector(23);
-
-        playerVector[0] = goalKeeper1;
-        playerVector[1] = goalKeeper2;
-        playerVector[2] = forward1;
-        playerVector[3] = forward2;
-        playerVector[4] = forward3;
-        playerVector[5] = forward4;
-        playerVector[6] = forward5;
-        playerVector[7] = forward6;
-        playerVector[8] = forward7;
-        playerVector[9] = midField1;
-        playerVector[10] = midField2;
-        playerVector[11] = midField3;
-        playerVector[12] = midField4;
-        playerVector[13] = midField5;
-        playerVector[14] = midField6;
-        playerVector[15] = midField7;
-        playerVector[16] = back1;
-        playerVector[17] = back2;
-        playerVector[18] = back3;
-        playerVector[19] = back4;
-        playerVector[20] = back5;
-        playerVector[21] = back6;
-        playerVector[22] = back7;
-    }
-    //playerList<<goalKeeper1<<goalKeeper2<<forward1<<forward2<<forward3<<forward4<<forward5<<forward6<<forward7<<midField1<<midField2<<midField3<<midField4<<midField5<<midField6<<midField7<<back1<<back2<<back3<<back4<<back5<<back6<<back7;
     //球队队员的数组
     {
-        teamPlayers[0] = goalKeeper1;
-        teamPlayers[1] = goalKeeper2;
-        teamPlayers[2] = forward1;
-        teamPlayers[3] = forward2;
-        teamPlayers[4] = forward3;
-        teamPlayers[5] = forward4;
-        teamPlayers[6] = forward5;
-        teamPlayers[7] = forward6;
-        teamPlayers[8] = forward7;
-        teamPlayers[9] = midField1;
-        teamPlayers[10] = midField2;
-        teamPlayers[11] = midField3;
-        teamPlayers[12] = midField4;
-        teamPlayers[13] = midField5;
-        teamPlayers[14] = midField6;
-        teamPlayers[15] = midField7;
-        teamPlayers[16] = back1;
-        teamPlayers[17] = back2;
-        teamPlayers[18] = back3;
-        teamPlayers[19] = back4;
-        teamPlayers[20] = back5;
-        teamPlayers[21] = back6;
-        teamPlayers[22] = back7;
+//        teamPlayers[0] = goalKeeper1;
+//        teamPlayers[1] = goalKeeper2;
+//        teamPlayers[2] = forward1;
+//        teamPlayers[3] = forward2;
+//        teamPlayers[4] = forward3;
+//        teamPlayers[5] = forward4;
+//        teamPlayers[6] = forward5;
+//        teamPlayers[7] = forward6;
+//        teamPlayers[8] = forward7;
+//        teamPlayers[9] = midField1;
+//        teamPlayers[10] = midField2;
+//        teamPlayers[11] = midField3;
+//        teamPlayers[12] = midField4;
+//        teamPlayers[13] = midField5;
+//        teamPlayers[14] = midField6;
+//        teamPlayers[15] = midField7;
+//        teamPlayers[16] = back1;
+//        teamPlayers[17] = back2;
+//        teamPlayers[18] = back3;
+//        teamPlayers[19] = back4;
+//        teamPlayers[20] = back5;
+//        teamPlayers[21] = back6;
+//        teamPlayers[22] = back7;
     }
 
     //选择正队长
@@ -7452,6 +17632,9 @@ MainWindow::MainWindow(QWidget *parent) :
             ui->checkBox_106->setChecked(false);
             ui->checkBox_107->setCheckState(Qt::Unchecked);
             ui->checkBox_107->setChecked(false);
+            srand((unsigned)time(NULL));
+            goalKeeper1.rating += (double)(rand()%10+1)/100;
+            goalKeeper2.rating += (double)(rand()%10+1)/100;
             ui->stackedWidget->setCurrentIndex(9);
         }
     });
@@ -7585,6 +17768,13 @@ MainWindow::MainWindow(QWidget *parent) :
             ui->checkBox_111->setChecked(false);
             ui->checkBox_112->setCheckState(Qt::Unchecked);
             ui->checkBox_112->setChecked(false);
+            forward1.rating += (double)(rand()%10+1)/100;
+            forward2.rating += (double)(rand()%10+1)/100;
+            forward3.rating += (double)(rand()%10+1)/100;
+            forward4.rating += (double)(rand()%10+1)/100;
+            forward5.rating += (double)(rand()%10+1)/100;
+            forward6.rating += (double)(rand()%10+1)/100;
+            forward7.rating += (double)(rand()%10+1)/100;
             ui->stackedWidget->setCurrentIndex(9);
         }
     });
@@ -7718,6 +17908,13 @@ MainWindow::MainWindow(QWidget *parent) :
             ui->checkBox_116->setChecked(false);
             ui->checkBox_117->setCheckState(Qt::Unchecked);
             ui->checkBox_117->setChecked(false);
+            midField1.rating += (double)(rand()%10+1)/100;
+            midField2.rating += (double)(rand()%10+1)/100;
+            midField3.rating += (double)(rand()%10+1)/100;
+            midField4.rating += (double)(rand()%10+1)/100;
+            midField5.rating += (double)(rand()%10+1)/100;
+            midField6.rating += (double)(rand()%10+1)/100;
+            midField7.rating += (double)(rand()%10+1)/100;
             ui->stackedWidget->setCurrentIndex(9);
         }
     });
@@ -7864,6 +18061,13 @@ MainWindow::MainWindow(QWidget *parent) :
             ui->checkBox_122->setChecked(false);
             ui->checkBox_123->setCheckState(Qt::Unchecked);
             ui->checkBox_123->setChecked(false);
+            back1.rating += (double)(rand()%10+1)/100;
+            back2.rating += (double)(rand()%10+1)/100;
+            back3.rating += (double)(rand()%10+1)/100;
+            back4.rating += (double)(rand()%10+1)/100;
+            back5.rating += (double)(rand()%10+1)/100;
+            back6.rating += (double)(rand()%10+1)/100;
+            back7.rating += (double)(rand()%10+1)/100;
             ui->stackedWidget->setCurrentIndex(9);
         }
     });
@@ -7973,599 +18177,622 @@ MainWindow::MainWindow(QWidget *parent) :
         if(ui->checkBox_124->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            goalKeeper1.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = goalKeeper1;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = goalKeeper1;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = goalKeeper1;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = goalKeeper1;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = goalKeeper1;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = goalKeeper1;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = goalKeeper1;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = goalKeeper1;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = goalKeeper1;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = goalKeeper1;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = goalKeeper1;
         }
         if(ui->checkBox_125->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            goalKeeper2.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = goalKeeper2;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = goalKeeper2;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = goalKeeper2;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = goalKeeper2;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = goalKeeper2;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = goalKeeper2;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = goalKeeper2;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = goalKeeper2;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = goalKeeper2;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = goalKeeper2;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = goalKeeper2;
         }
         if(ui->checkBox_126->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            forward1.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = forward1;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = forward1;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = forward1;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = forward1;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = forward1;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = forward1;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = forward1;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = forward1;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = forward1;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = forward1;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = forward1;
         }
         if(ui->checkBox_127->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            forward2.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = forward2;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = forward2;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = forward2;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = forward2;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = forward2;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = forward2;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = forward2;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = forward2;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = forward2;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = forward2;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = forward2;
         }
         if(ui->checkBox_128->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            forward3.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = forward3;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = forward3;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = forward3;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = forward3;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = forward3;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = forward3;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = forward3;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = forward3;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = forward3;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = forward3;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = forward3;
         }
         if(ui->checkBox_129->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            forward4.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = forward4;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = forward4;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = forward4;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = forward4;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = forward4;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = forward4;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = forward4;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = forward4;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = forward4;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = forward4;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = forward4;
         }
         if(ui->checkBox_130->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            forward5.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = forward5;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = forward5;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = forward5;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = forward5;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = forward5;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = forward5;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = forward5;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = forward5;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = forward5;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = forward5;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = forward5;
         }
         if(ui->checkBox_131->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            forward6.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = forward6;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = forward6;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = forward6;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = forward6;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = forward6;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = forward6;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = forward6;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = forward6;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = forward6;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = forward6;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = forward6;
         }
         if(ui->checkBox_132->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            forward7.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = forward7;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = forward7;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = forward7;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = forward7;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = forward7;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = forward7;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = forward7;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = forward7;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = forward7;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = forward7;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = forward7;
         }
         if(ui->checkBox_133->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            midField1.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = midField1;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = midField1;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = midField1;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = midField1;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = midField1;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = midField1;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = midField1;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = midField1;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = midField1;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = midField1;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = midField1;
         }
         if(ui->checkBox_134->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            midField2.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = midField2;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = midField2;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = midField2;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = midField2;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = midField2;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = midField2;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = midField2;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = midField2;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = midField2;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = midField2;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = midField2;
         }
         if(ui->checkBox_135->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            midField3.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = midField3;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = midField3;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = midField3;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = midField3;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = midField3;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = midField3;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = midField3;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = midField3;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = midField3;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = midField3;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = midField3;
         }
         if(ui->checkBox_136->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            midField4.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = midField4;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = midField4;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = midField4;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = midField4;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = midField4;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = midField4;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = midField4;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = midField4;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = midField4;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = midField4;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = midField4;
         }
         if(ui->checkBox_137->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            midField5.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = midField5;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = midField5;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = midField5;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = midField5;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = midField5;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = midField5;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = midField5;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = midField5;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = midField5;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = midField5;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = midField5;
         }
         if(ui->checkBox_138->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            midField6.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = midField6;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = midField6;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = midField6;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = midField6;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = midField6;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = midField6;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = midField6;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = midField6;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = midField6;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = midField6;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = midField6;
         }
         if(ui->checkBox_139->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            midField7.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = midField7;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = midField7;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = midField7;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = midField7;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = midField7;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = midField7;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = midField7;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = midField7;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = midField7;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = midField7;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = midField7;
         }
         if(ui->checkBox_140->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            back1.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = back1;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = back1;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = back1;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = back1;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = back1;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = back1;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = back1;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = back1;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = back1;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = back1;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = back1;
         }
         if(ui->checkBox_141->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            back2.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = back2;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = back2;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = back2;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = back2;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = back2;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = back2;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = back2;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = back2;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = back2;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = back2;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = back2;
         }
         if(ui->checkBox_142->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            back3.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = back3;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = back3;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = back3;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = back3;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = back3;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = back3;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = back3;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = back3;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = back3;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = back3;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = back3;
         }
         if(ui->checkBox_143->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            back4.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = back4;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = back4;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = back4;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = back4;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = back4;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = back4;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = back4;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = back4;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = back4;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = back4;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = back4;
         }
         if(ui->checkBox_144->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            back5.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = back5;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = back5;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = back5;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = back5;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = back5;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = back5;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = back5;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = back5;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = back5;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = back5;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = back5;
         }
         if(ui->checkBox_145->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            back6.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = back6;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = back6;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = back6;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = back6;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = back6;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = back6;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = back6;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = back6;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = back6;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = back6;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = back6;
         }
         if(ui->checkBox_146->isChecked())
         {
             ckBoxSum++;
-            if (p1 == QString(""))
+            back7.is_p = 1;
+            if (p1.name == QString(""))
                 p1 = back7;
-            else if (p2 == QString(""))
+            else if (p2.name == QString(""))
                 p2 = back7;
-            else if (p3 == QString(""))
+            else if (p3.name == QString(""))
                 p3 = back7;
-            else if (p4 == QString(""))
+            else if (p4.name == QString(""))
                 p4 = back7;
-            else if (p5 == QString(""))
+            else if (p5.name == QString(""))
                 p5 = back7;
-            else if (p6 == QString(""))
+            else if (p6.name == QString(""))
                 p6 = back7;
-            else if (p7 == QString(""))
+            else if (p7.name == QString(""))
                 p7 = back7;
-            else if (p8 == QString(""))
+            else if (p8.name == QString(""))
                 p8 = back7;
-            else if (p9 == QString(""))
+            else if (p9.name == QString(""))
                 p9 = back7;
-            else if (p10 == QString(""))
+            else if (p10.name == QString(""))
                 p10 = back7;
-            else if (p11 == QString(""))
+            else if (p11.name == QString(""))
                 p11 = back7;
         }
 
@@ -8635,11 +18862,35 @@ MainWindow::MainWindow(QWidget *parent) :
             p[8] = p9;
             p[9] = p10;
             p[10] = p11;
+            teamPlayers[0] = goalKeeper1;
+            teamPlayers[1] = goalKeeper2;
+            teamPlayers[2] = forward1;
+            teamPlayers[3] = forward2;
+            teamPlayers[4] = forward3;
+            teamPlayers[5] = forward4;
+            teamPlayers[6] = forward5;
+            teamPlayers[7] = forward6;
+            teamPlayers[8] = forward7;
+            teamPlayers[9] = midField1;
+            teamPlayers[10] = midField2;
+            teamPlayers[11] = midField3;
+            teamPlayers[12] = midField4;
+            teamPlayers[13] = midField5;
+            teamPlayers[14] = midField6;
+            teamPlayers[15] = midField7;
+            teamPlayers[16] = back1;
+            teamPlayers[17] = back2;
+            teamPlayers[18] = back3;
+            teamPlayers[19] = back4;
+            teamPlayers[20] = back5;
+            teamPlayers[21] = back6;
+            teamPlayers[22] = back7;
             for (int i=0;i<11;i++)
             {
-                qDebug()<<"p"<<i<<":"<<p[i];
+                qDebug()<<"p"<<i<<":"<<p[i].name;
+                qDebug()<<"p"<<i<<" age:"<<p[i].age;
             }
-            ui->stackedWidget->setCurrentIndex(18);
+            ui->stackedWidget->setCurrentIndex(19);
         }
     });
 
@@ -8719,10 +18970,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timer1,&QTimer::timeout,this,&MainWindow::gameFinish);
     connect(timer2,&QTimer::timeout,this,&MainWindow::randomYellow);
     connect(timer3,&QTimer::timeout,this,&MainWindow::randomRed);
-    connect(timer_myGoal_1,&QTimer::timeout,this,&MainWindow::mygoal_30min);
-    connect(timer_myGoal_2,&QTimer::timeout,this,&MainWindow::mygoal_41min);
-    connect(timer_myGoal_3,&QTimer::timeout,this,&MainWindow::mygoal_60min);
-    connect(timer_myGoal_4,&QTimer::timeout,this,&MainWindow::mygoal_85min);
+    connect(timer_myGoal_1,&QTimer::timeout,this,&MainWindow::mygoal_1);
+    connect(timer_myGoal_2,&QTimer::timeout,this,&MainWindow::mygoal_2);
+    connect(timer_myGoal_3,&QTimer::timeout,this,&MainWindow::mygoal_3);
+    connect(timer_myGoal_4,&QTimer::timeout,this,&MainWindow::mygoal_4);
     connect(timer_oppGoal_1,&QTimer::timeout,this,&MainWindow::oppgoal_1);
     connect(timer_oppGoal_2,&QTimer::timeout,this,&MainWindow::oppgoal_2);
     connect(timer_oppGoal_3,&QTimer::timeout,this,&MainWindow::oppgoal_3);
@@ -8731,19 +18982,19 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timer_talk,&QTimer::timeout,this,&MainWindow::talk);
 
     timer0->setInterval(1000);//每秒改动进度条的数值
-    timer1->setInterval(61000);//下半场61秒触发一次比赛结束(下半场比赛结束)
-    timer2->setInterval(30000);//每30秒触发一次随机黄牌
-    timer3->setInterval(50000);//每50秒触发一次随机红牌
-    timer_myGoal_1->setInterval(40000);//40秒触发30min处进球
-    timer_myGoal_2->setInterval(55000);//55秒触发41min处进球
-    timer_myGoal_3->setInterval(20000);//下半场20秒触发60min处进球(下半场)
-    timer_myGoal_4->setInterval(53000);//下半场53秒触发85min处进球(下半场)
-    timer_oppGoal_1->setInterval(38000);//对手进球的第1次随机判定
-    timer_oppGoal_2->setInterval(5000);//对手进球的第2次随机判定(下半场)
-    timer_oppGoal_3->setInterval(18000);//对手进球的第3次随机判定(下半场)
-    timer_oppGoal_4->setInterval(55000);//对手进球的第4次随机判定(下半场)
-    timer_ownGoal->setInterval(45000);//每45秒判定一次随机的乌龙球
-    timer_talk->setInterval(60000);//上半场结束，中场时间，触发更衣室谈话
+    timer1->setInterval(151000);//下半场151秒触发一次比赛结束(下半场比赛结束)
+    timer2->setInterval(75000);//每75秒触发一次随机黄牌
+    timer3->setInterval(120000);//每120秒触发一次随机红牌
+    timer_myGoal_1->setInterval(80000);//80秒触发第1次进球
+    timer_myGoal_2->setInterval(125000);//125秒触发第2次进球
+    timer_myGoal_3->setInterval(50000);//下半场50秒触发第3次进球(下半场)
+    timer_myGoal_4->setInterval(100000);//下半场100秒触发第4次进球(下半场)
+    timer_oppGoal_1->setInterval(110000);//对手进球的第1次随机判定
+    timer_oppGoal_2->setInterval(60000);//对手进球的第2次随机判定(下半场)
+    timer_oppGoal_3->setInterval(90000);//对手进球的第3次随机判定(下半场)
+    timer_oppGoal_4->setInterval(130000);//对手进球的第4次随机判定(下半场)
+    timer_ownGoal->setInterval(100000);//每100秒判定一次随机的乌龙球
+    timer_talk->setInterval(150000);//上半场结束，中场时间，触发更衣室谈话
 
     //随机选取对手
     int cas = 0;
@@ -8767,8 +19018,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //"开赛"按钮
     connect(ui->gameBeginBtn,&QPushButton::clicked,[=](){
         bar_val = 0;
+        submission_cnt = 0;
         ui->progressBar->setValue(0);
-        ui->progressBar->setMaximum(120);
+        ui->progressBar->setMaximum(300);
         ui->label_24->setText(teamName);
         ui->label_25->setText(oppTeamName);
         myGoal = 0;
@@ -8792,15 +19044,623 @@ MainWindow::MainWindow(QWidget *parent) :
         uicurrentCommand->exec();
     });
 
-    //"换人"界面
-    {
-        if (goalKeeper1 != p1)
-            ui->radioButton_24->setText(goalKeeper1);
-    }
-
     //"换人"按钮
     connect(ui->submissionBtn,&QPushButton::clicked,[=](){
+        if (submission_cnt >= 3)
+        {
+            int a =QMessageBox::warning(this,QString("注意"),QString("教练，您只有三次换人机会，您已经用尽了这三次机会"),QMessageBox::Ok);
+        }
+        else
+        {
+            submission_cnt++;
+            //"换人"界面想要换下的球员
+            {
+                ui->radioButton_13->setText(p[0].name);
+                ui->radioButton_14->setText(p[1].name);
+                ui->radioButton_15->setText(p[2].name);
+                ui->radioButton_16->setText(p[3].name);
+                ui->radioButton_17->setText(p[4].name);
+                ui->radioButton_18->setText(p[5].name);
+                ui->radioButton_19->setText(p[6].name);
+                ui->radioButton_20->setText(p[7].name);
+                ui->radioButton_21->setText(p[8].name);
+                ui->radioButton_22->setText(p[9].name);
+                ui->radioButton_23->setText(p[10].name);
+            }
+            ui->stackedWidget->setCurrentIndex(23);
+        }
 
+    });
+
+
+    //换下球员"确认"按钮
+    connect(ui->conFirmBtn_1,&QPushButton::clicked,[=](){
+        if (ui->radioButton_13->isChecked())
+        {
+            p1.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p1.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_14->isChecked())
+        {
+            p2.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p2.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_15->isChecked())
+        {
+            p3.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p3.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_16->isChecked())
+        {
+            p4.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p4.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_17->isChecked())
+        {
+            p5.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p5.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_18->isChecked())
+        {
+            p6.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p6.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_19->isChecked())
+        {
+            p7.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p7.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_20->isChecked())
+        {
+            p8.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p8.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_21->isChecked())
+        {
+            p9.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p9.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_22->isChecked())
+        {
+            p10.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p10.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_23->isChecked())
+        {
+            p11.is_p = 0;
+            for (int i=0;i<23;i++)
+            {
+                if(teamPlayers[i].name == p11.name)
+                {
+                    teamPlayers[i].is_p = 0;
+                    break;
+                }
+            }
+        }
+        p[0] = p1;
+        p[1] = p2;
+        p[2] = p3;
+        p[3] = p4;
+        p[4] = p5;
+        p[5] = p6;
+        p[6] = p7;
+        p[7] = p8;
+        p[8] = p9;
+        p[9] = p10;
+        p[10] = p11;
+        //"换人"界面想要换上的球员
+        {
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_24->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_25->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_26->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_27->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_28->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_29->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_30->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_31->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_32->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_33->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_34->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].is_p == 0 && teamPlayers[i].is_display == 0)
+                {
+                    ui->radioButton_35->setText(teamPlayers[i].name);
+                    teamPlayers[i].is_display = 1;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        ui->stackedWidget->setCurrentIndex(25);
+    });
+
+
+
+    //换上球员"确认"按钮
+    connect(ui->conFirmBtn_2,&QPushButton::clicked,[=](){
+        if (ui->radioButton_24->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_24->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_25->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_25->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_26->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_26->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_27->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_27->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_28->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_28->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_29->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_29->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_30->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_30->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_31->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_31->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_32->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_32->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_33->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_33->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_34->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_34->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        else if (ui->radioButton_35->isChecked())
+        {
+            player temps;
+            QString tmp = ui->radioButton_35->text();
+            for (int i=0;i<23;i++)
+            {
+                if (teamPlayers[i].name == tmp)
+                {
+                    temps = teamPlayers[i];
+                    teamPlayers[i].is_p = 1;
+                    break;
+                }
+            }
+            for (int i=0;i<11;i++)
+            {
+                if(p[i].is_p == 0)
+                {
+                    p[i] = temps;
+                    p[i].is_p = 1;
+                    break;
+                }
+            }
+        }
+        ui->stackedWidget->setCurrentIndex(21);
     });
 
     //"改变阵型"按钮
@@ -8976,7 +19836,6 @@ void MainWindow::createTeam()
         uiCTD->exec();
         teamName = uiCTD->getTeamName();
         qDebug() << teamName;
-
         uiACTD = new AfterChooseTeamDialog(this);
         uiACTD->setUserName(userName);
         uiACTD->setTeamName(teamName);
@@ -9118,7 +19977,7 @@ void MainWindow::randomYellow()
                     break;
                 uiRCD = new redCardDialog(this);
                 uiRCD->setWindowTitle(QString("红牌罚下通告"));
-                uiRCD->setname(p2);
+                uiRCD->setname(p2.name);
                 uiRCD->show();
                 uiRCD->exec();
                 red[1] = 1;
@@ -9130,7 +19989,7 @@ void MainWindow::randomYellow()
                     break;
                 uiRCD = new redCardDialog(this);
                 uiRCD->setWindowTitle(QString("红牌罚下通告"));
-                uiRCD->setname(p3);
+                uiRCD->setname(p3.name);
                 uiRCD->show();
                 uiRCD->exec();
                 red[2] = 1;
@@ -9142,7 +20001,7 @@ void MainWindow::randomYellow()
                     break;
                 uiRCD = new redCardDialog(this);
                 uiRCD->setWindowTitle(QString("红牌罚下通告"));
-                uiRCD->setname(p4);
+                uiRCD->setname(p4.name);
                 uiRCD->show();
                 uiRCD->exec();
                 red[3] = 1;
@@ -9154,7 +20013,7 @@ void MainWindow::randomYellow()
                     break;
                 uiRCD = new redCardDialog(this);
                 uiRCD->setWindowTitle(QString("红牌罚下通告"));
-                uiRCD->setname(p5);
+                uiRCD->setname(p5.name);
                 uiRCD->show();
                 uiRCD->exec();
                 red[4] = 1;
@@ -9166,7 +20025,7 @@ void MainWindow::randomYellow()
                     break;
                 uiRCD = new redCardDialog(this);
                 uiRCD->setWindowTitle(QString("红牌罚下通告"));
-                uiRCD->setname(p6);
+                uiRCD->setname(p6.name);
                 uiRCD->show();
                 uiRCD->exec();
                 red[5] = 1;
@@ -9178,7 +20037,7 @@ void MainWindow::randomYellow()
                     break;
                 uiRCD = new redCardDialog(this);
                 uiRCD->setWindowTitle(QString("红牌罚下通告"));
-                uiRCD->setname(p7);
+                uiRCD->setname(p7.name);
                 uiRCD->show();
                 uiRCD->exec();
                 red[6] = 1;
@@ -9190,7 +20049,7 @@ void MainWindow::randomYellow()
                     break;
                 uiRCD = new redCardDialog(this);
                 uiRCD->setWindowTitle(QString("红牌罚下通告"));
-                uiRCD->setname(p8);
+                uiRCD->setname(p8.name);
                 uiRCD->show();
                 uiRCD->exec();
                 red[7] = 1;
@@ -9202,7 +20061,7 @@ void MainWindow::randomYellow()
                     break;
                 uiRCD = new redCardDialog(this);
                 uiRCD->setWindowTitle(QString("红牌罚下通告"));
-                uiRCD->setname(p9);
+                uiRCD->setname(p9.name);
                 uiRCD->show();
                 uiRCD->exec();
                 red[8] = 1;
@@ -9214,7 +20073,7 @@ void MainWindow::randomYellow()
                     break;
                 uiRCD = new redCardDialog(this);
                 uiRCD->setWindowTitle(QString("红牌罚下通告"));
-                uiRCD->setname(p10);
+                uiRCD->setname(p10.name);
                 uiRCD->show();
                 uiRCD->exec();
                 red[9] = 1;
@@ -9244,7 +20103,7 @@ void MainWindow::randomRed()
                 break;
             uiRCD = new redCardDialog(this);
             uiRCD->setWindowTitle(QString("红牌罚下通告"));
-            uiRCD->setname(p2);
+            uiRCD->setname(p2.name);
             uiRCD->show();
             uiRCD->exec();
             red[1] = 1;
@@ -9256,7 +20115,7 @@ void MainWindow::randomRed()
                 break;
             uiRCD = new redCardDialog(this);
             uiRCD->setWindowTitle(QString("红牌罚下通告"));
-            uiRCD->setname(p3);
+            uiRCD->setname(p3.name);
             uiRCD->show();
             uiRCD->exec();
             red[2] = 1;
@@ -9268,7 +20127,7 @@ void MainWindow::randomRed()
                 break;
             uiRCD = new redCardDialog(this);
             uiRCD->setWindowTitle(QString("红牌罚下通告"));
-            uiRCD->setname(p4);
+            uiRCD->setname(p4.name);
             uiRCD->show();
             uiRCD->exec();
             red[3] = 1;
@@ -9280,7 +20139,7 @@ void MainWindow::randomRed()
                 break;
             uiRCD = new redCardDialog(this);
             uiRCD->setWindowTitle(QString("红牌罚下通告"));
-            uiRCD->setname(p5);
+            uiRCD->setname(p5.name);
             uiRCD->show();
             uiRCD->exec();
             red[4] = 1;
@@ -9292,7 +20151,7 @@ void MainWindow::randomRed()
                 break;
             uiRCD = new redCardDialog(this);
             uiRCD->setWindowTitle(QString("红牌罚下通告"));
-            uiRCD->setname(p6);
+            uiRCD->setname(p6.name);
             uiRCD->show();
             uiRCD->exec();
             red[5] = 1;
@@ -9304,7 +20163,7 @@ void MainWindow::randomRed()
                 break;
             uiRCD = new redCardDialog(this);
             uiRCD->setWindowTitle(QString("红牌罚下通告"));
-            uiRCD->setname(p7);
+            uiRCD->setname(p7.name);
             uiRCD->show();
             uiRCD->exec();
             red[6] = 1;
@@ -9316,7 +20175,7 @@ void MainWindow::randomRed()
                 break;
             uiRCD = new redCardDialog(this);
             uiRCD->setWindowTitle(QString("红牌罚下通告"));
-            uiRCD->setname(p8);
+            uiRCD->setname(p8.name);
             uiRCD->show();
             uiRCD->exec();
             red[7] = 1;
@@ -9328,7 +20187,7 @@ void MainWindow::randomRed()
                 break;
             uiRCD = new redCardDialog(this);
             uiRCD->setWindowTitle(QString("红牌罚下通告"));
-            uiRCD->setname(p9);
+            uiRCD->setname(p9.name);
             uiRCD->show();
             uiRCD->exec();
             red[8] = 1;
@@ -9340,7 +20199,7 @@ void MainWindow::randomRed()
                 break;
             uiRCD = new redCardDialog(this);
             uiRCD->setWindowTitle(QString("红牌罚下通告"));
-            uiRCD->setname(p10);
+            uiRCD->setname(p10.name);
             uiRCD->show();
             uiRCD->exec();
             red[9] = 1;
@@ -9371,29 +20230,18 @@ void MainWindow::bar()
     bar_val = ui->progressBar->value();
     bar_val++;
     qDebug()<<"bar_val:"<<bar_val;
-    if (bar_val > 120)
+    if (bar_val > 300)
     {
         timer0->stop();
-        ui->progressBar->setValue(120);
+        ui->progressBar->setValue(300);
     }
     else
         ui->progressBar->setValue(bar_val);
 }
 
-void MainWindow::mygoal_30min()
+void MainWindow::mygoal_1()
 {
-//    bool t = false;
-//    for (int i=1;i<=9;i++)
-//    {
-//        if (p[i] == QString("莱万多夫斯基")||p[i] == QString("穆勒")||p[i] == QString("维尔纳")||p[i] == QString("奥巴梅扬")||p[i] == QString("姆巴佩")||p[i] == QString("内马尔")||p[i] == QString("迪巴拉")||p[i] == QString("罗纳尔多")||p[i] == QString("阿扎尔")||p[i] == QString("贝尔")||p[i] == QString("菲尔米诺")||p[i] == QString("萨拉赫")||p[i] == QString("马内")||p[i] == QString("斯特林")||p[i] == QString("马赫雷斯")||p[i] == QString("阿圭罗")||p[i] == QString("格列兹曼")||p[i] == QString("梅西")||p[i] == QString("苏亚雷斯")||p[i] == QString("格纳布里")||p[i] == QString("萨内")||p[i] == QString("罗伊斯")||p[i] == QString("伊卡尔迪")||p[i] == QString("卢卡库")||p[i] == QString("齐耶赫")||p[i] == QString("哈梅斯罗德里格斯")||p[i] == QString("阿图尔")||p[i] == QString("克罗斯")||p[i] == QString("莫德里奇")||p[i] == QString("卡塞米罗")||p[i] == QString("亨德森")||p[i] == QString("伯纳多席尔瓦")||p[i] == QString("德布劳内")||p[i] == QString("库蒂尼奥")||p[i] == QString("德容")||p[i] == QString("桑乔")||p[i] == QString("维拉蒂")||p[i] == QString("埃里克森")||p[i] == QString("基米希")||p[i] == QString("瓦拉内")||p[i] == QString("卡瓦哈尔")||p[i] == QString("德里赫特")||p[i] == QString("阿诺德")||p[i] == QString("范戴克")||p[i] == QString("罗伯逊")||p[i] == QString("皮克")||p[i] == QString("胡梅尔斯")||p[i] == QString("马尔基尼奥斯")||p[i] == QString("博努奇")||p[i] == QString("戈丁"))
-//        {
-//            t = true;
-//            break;
-//        }
-//        else
-//            continue;
-//    }
-    if (goalKeeper1.rating >= 85 ||)
+    if (p1.rating >= 85||p2.rating >= 85||p3.rating >= 85||p4.rating >= 85||p5.rating >= 85||p6.rating >= 85||p7.rating >= 85||p8.rating >= 85||p9.rating >= 85||p10.rating >= 85||p11.rating >= 85)
     {
         int cas = 0;
         srand((unsigned)time(NULL));
@@ -9425,20 +20273,9 @@ void MainWindow::mygoal_30min()
     }
 }
 
-void MainWindow::mygoal_41min()
+void MainWindow::mygoal_2()
 {
-    bool t = false;
-    for (int i=1;i<=9;i++)
-    {
-        if (p[i] == QString("莱万多夫斯基")||p[i] == QString("穆勒")||p[i] == QString("维尔纳")||p[i] == QString("奥巴梅扬")||p[i] == QString("姆巴佩")||p[i] == QString("内马尔")||p[i] == QString("迪巴拉")||p[i] == QString("罗纳尔多")||p[i] == QString("阿扎尔")||p[i] == QString("贝尔")||p[i] == QString("菲尔米诺")||p[i] == QString("萨拉赫")||p[i] == QString("马内")||p[i] == QString("斯特林")||p[i] == QString("马赫雷斯")||p[i] == QString("阿圭罗")||p[i] == QString("格列兹曼")||p[i] == QString("梅西")||p[i] == QString("苏亚雷斯")||p[i] == QString("格纳布里")||p[i] == QString("萨内")||p[i] == QString("罗伊斯")||p[i] == QString("伊卡尔迪")||p[i] == QString("卢卡库")||p[i] == QString("齐耶赫")||p[i] == QString("哈梅斯罗德里格斯")||p[i] == QString("阿图尔")||p[i] == QString("克罗斯")||p[i] == QString("莫德里奇")||p[i] == QString("卡塞米罗")||p[i] == QString("亨德森")||p[i] == QString("伯纳多席尔瓦")||p[i] == QString("德布劳内")||p[i] == QString("库蒂尼奥")||p[i] == QString("德容")||p[i] == QString("桑乔")||p[i] == QString("维拉蒂")||p[i] == QString("埃里克森")||p[i] == QString("基米希")||p[i] == QString("瓦拉内")||p[i] == QString("卡瓦哈尔")||p[i] == QString("德里赫特")||p[i] == QString("阿诺德")||p[i] == QString("范戴克")||p[i] == QString("罗伯逊")||p[i] == QString("皮克")||p[i] == QString("胡梅尔斯")||p[i] == QString("马尔基尼奥斯")||p[i] == QString("博努奇")||p[i] == QString("戈丁"))
-        {
-            t = true;
-            break;
-        }
-        else
-            continue;
-    }
-    if (t)
+    if (p1.rating >= 85||p2.rating >= 85||p3.rating >= 85||p4.rating >= 85||p5.rating >= 85||p6.rating >= 85||p7.rating >= 85||p8.rating >= 85||p9.rating >= 85||p10.rating >= 85||p11.rating >= 85)
     {
         int cas = 0;
         srand((unsigned)time(NULL));
@@ -9470,20 +20307,9 @@ void MainWindow::mygoal_41min()
     }
 }
 
-void MainWindow::mygoal_60min()
+void MainWindow::mygoal_3()
 {
-    bool t = false;
-    for (int i=1;i<=9;i++)
-    {
-        if (p[i] == QString("莱万多夫斯基")||p[i] == QString("穆勒")||p[i] == QString("维尔纳")||p[i] == QString("奥巴梅扬")||p[i] == QString("姆巴佩")||p[i] == QString("内马尔")||p[i] == QString("迪巴拉")||p[i] == QString("罗纳尔多")||p[i] == QString("阿扎尔")||p[i] == QString("贝尔")||p[i] == QString("菲尔米诺")||p[i] == QString("萨拉赫")||p[i] == QString("马内")||p[i] == QString("斯特林")||p[i] == QString("马赫雷斯")||p[i] == QString("阿圭罗")||p[i] == QString("格列兹曼")||p[i] == QString("梅西")||p[i] == QString("苏亚雷斯")||p[i] == QString("格纳布里")||p[i] == QString("萨内")||p[i] == QString("罗伊斯")||p[i] == QString("伊卡尔迪")||p[i] == QString("卢卡库")||p[i] == QString("齐耶赫")||p[i] == QString("哈梅斯罗德里格斯")||p[i] == QString("阿图尔")||p[i] == QString("克罗斯")||p[i] == QString("莫德里奇")||p[i] == QString("卡塞米罗")||p[i] == QString("亨德森")||p[i] == QString("伯纳多席尔瓦")||p[i] == QString("德布劳内")||p[i] == QString("库蒂尼奥")||p[i] == QString("德容")||p[i] == QString("桑乔")||p[i] == QString("维拉蒂")||p[i] == QString("埃里克森")||p[i] == QString("基米希")||p[i] == QString("瓦拉内")||p[i] == QString("卡瓦哈尔")||p[i] == QString("德里赫特")||p[i] == QString("阿诺德")||p[i] == QString("范戴克")||p[i] == QString("罗伯逊")||p[i] == QString("皮克")||p[i] == QString("胡梅尔斯")||p[i] == QString("马尔基尼奥斯")||p[i] == QString("博努奇")||p[i] == QString("戈丁"))
-        {
-            t = true;
-            break;
-        }
-        else
-            continue;
-    }
-    if (t)
+    if (p1.rating >= 85||p2.rating >= 85||p3.rating >= 85||p4.rating >= 85||p5.rating >= 85||p6.rating >= 85||p7.rating >= 85||p8.rating >= 85||p9.rating >= 85||p10.rating >= 85||p11.rating >= 85)
     {
         int cas = 0;
         srand((unsigned)time(NULL));
@@ -9515,20 +20341,9 @@ void MainWindow::mygoal_60min()
     }
 }
 
-void MainWindow::mygoal_85min()
+void MainWindow::mygoal_4()
 {
-    bool t = false;
-    for (int i=1;i<=9;i++)
-    {
-        if (p[i] == QString("莱万多夫斯基")||p[i] == QString("穆勒")||p[i] == QString("维尔纳")||p[i] == QString("奥巴梅扬")||p[i] == QString("姆巴佩")||p[i] == QString("内马尔")||p[i] == QString("迪巴拉")||p[i] == QString("罗纳尔多")||p[i] == QString("阿扎尔")||p[i] == QString("贝尔")||p[i] == QString("菲尔米诺")||p[i] == QString("萨拉赫")||p[i] == QString("马内")||p[i] == QString("斯特林")||p[i] == QString("马赫雷斯")||p[i] == QString("阿圭罗")||p[i] == QString("格列兹曼")||p[i] == QString("梅西")||p[i] == QString("苏亚雷斯")||p[i] == QString("格纳布里")||p[i] == QString("萨内")||p[i] == QString("罗伊斯")||p[i] == QString("伊卡尔迪")||p[i] == QString("卢卡库")||p[i] == QString("齐耶赫")||p[i] == QString("哈梅斯罗德里格斯")||p[i] == QString("阿图尔")||p[i] == QString("克罗斯")||p[i] == QString("莫德里奇")||p[i] == QString("卡塞米罗")||p[i] == QString("亨德森")||p[i] == QString("伯纳多席尔瓦")||p[i] == QString("德布劳内")||p[i] == QString("库蒂尼奥")||p[i] == QString("德容")||p[i] == QString("桑乔")||p[i] == QString("维拉蒂")||p[i] == QString("埃里克森")||p[i] == QString("基米希")||p[i] == QString("瓦拉内")||p[i] == QString("卡瓦哈尔")||p[i] == QString("德里赫特")||p[i] == QString("阿诺德")||p[i] == QString("范戴克")||p[i] == QString("罗伯逊")||p[i] == QString("皮克")||p[i] == QString("胡梅尔斯")||p[i] == QString("马尔基尼奥斯")||p[i] == QString("博努奇")||p[i] == QString("戈丁"))
-        {
-            t = true;
-            break;
-        }
-        else
-            continue;
-    }
-    if (t)
+    if (p1.rating >= 85||p2.rating >= 85||p3.rating >= 85||p4.rating >= 85||p5.rating >= 85||p6.rating >= 85||p7.rating >= 85||p8.rating >= 85||p9.rating >= 85||p10.rating >= 85||p11.rating >= 85)
     {
         int cas = 0;
         srand((unsigned)time(NULL));
@@ -9667,6 +20482,52 @@ void MainWindow::gameFinish()
     timer_oppGoal_4->stop();
     timer_ownGoal->stop();
     timer_talk->stop();
+    goalKeeper1.is_p = 0;
+    goalKeeper1.is_display = 0;
+    goalKeeper2.is_p = 0;
+    goalKeeper2.is_display = 0;
+    forward1.is_p = 0;
+    forward1.is_display = 0;
+    forward2.is_p = 0;
+    forward2.is_display = 0;
+    forward3.is_p = 0;
+    forward3.is_display = 0;
+    forward4.is_p = 0;
+    forward4.is_display = 0;
+    forward5.is_p = 0;
+    forward5.is_display = 0;
+    forward6.is_p = 0;
+    forward6.is_display = 0;
+    forward7.is_p = 0;
+    forward7.is_display = 0;
+    midField1.is_p = 0;
+    midField1.is_display = 0;
+    midField2.is_p = 0;
+    midField2.is_display = 0;
+    midField3.is_p = 0;
+    midField3.is_display = 0;
+    midField4.is_p = 0;
+    midField4.is_display = 0;
+    midField5.is_p = 0;
+    midField5.is_display = 0;
+    midField6.is_p = 0;
+    midField6.is_display = 0;
+    midField7.is_p = 0;
+    midField7.is_display = 0;
+    back1.is_p = 0;
+    back1.is_display = 0;
+    back2.is_p = 0;
+    back2.is_display = 0;
+    back3.is_p = 0;
+    back3.is_display = 0;
+    back4.is_p = 0;
+    back4.is_display = 0;
+    back5.is_p = 0;
+    back5.is_display = 0;
+    back6.is_p = 0;
+    back6.is_display = 0;
+    back7.is_p = 0;
+    back7.is_display = 0;
     if (myGoal > oppGoal)
     {
         winCase = 1;
